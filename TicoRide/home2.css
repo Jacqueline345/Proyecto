@@ -1,0 +1,162 @@
+body {
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    
+}
+
+.text {
+    color: black;
+    padding-left: 20px;
+}
+
+.text h1 {
+    font-size: 2em;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+}
+.nav-link {
+    background-color: transparent;
+    padding: 15px 25px;
+    color: gray;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.nav-link:hover {
+    background-color: blue;
+    color: white;
+}
+.buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+.buscar h1{
+    color: lightslategray;
+    font-size: 25px;
+    font-style: Arial;
+    text-align: center;
+   text-decoration-line: underline;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex; /* Establece el contenedor como flexbox */
+    align-items: center; /* Alinea verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una línea */
+    justify-content: space-between;
+}
+
+.from, .to, .btn {
+    margin-right: 10px; /* Espacio entre los elementos */
+}
+
+.inpC {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-right: 10px; /* Espacio entre los elementos select */
+}
+.inpC:checked{
+    background-color: gray;
+}
+
+.Days {
+    margin-right: 10px; /* Espacio entre el texto 'Days' y los checkboxes */
+    margin-bottom: 10px;
+    
+}
+
+.M, .T, .W, .Th, .F, .S, .Su {
+    margin-right: 5px; /* Espacio entre los checkboxes */
+    margin-bottom: 5px;
+}
+.destacado{
+    font-weight: bold;
+}
+.table, th, td{
+    border: 1px solid lightslategray;
+    border-collapse: collapse;
+}
+.table{
+    margin: 5px;
+    align-content: center;
+}
+.th, td{
+    padding: 10px;
+    text-align: center;
+}
+.th{
+    background-color: lightgray;
+    text-align: center;
+}
+.td img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+a{
+    color: blue;
+}
+a:hover{
+    color: blue;
+}
+.mapa{
+    display: flex;
+    justify-content: center;
+}
+.link {
+    text-decoration: none;
+    color: gray;
+}
+
+.link:hover {
+    color: gray;
+}
+.footer {
+    background-color: white;
+    color: gray;
+    padding: 10px;
+    text-align: center;
+    position: block;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img {
+    max-width: 20px;
+    height: auto;
+    margin-right: 10px;
+}

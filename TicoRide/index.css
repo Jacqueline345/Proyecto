@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.text {
+    color: black;
+    padding-left: 20px;
+}
+
+.text h1 {
+    font-size: 2em;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.boton .btn1 {
+    background-image: url('image/google.png');
+    background-size: 8%;
+    background-repeat: no-repeat;
+    background-position: left;
+    font-size: 18px;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    text-align: center;
+    display: inline-block;
+    background-color: white;
+    color: blue;
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.boton h1 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+.box{
+    border: none;
+    border-radius: 0;
+}
+.title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+.inp{
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+
+}
+.password{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+.inpt{
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+.register-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.not-user {
+    margin-right: 10px; 
+}
+
+.btn-info {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+
+.btn-info:hover {
+    text-decoration-color: blue;
+}
+.btn-login{
+    font-size: 20px;
+    padding: 15px 32px;
+    margin: 4px auto; 
+    display: block; 
+    background-color: lightskyblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

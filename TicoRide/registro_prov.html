@@ -1,0 +1,140 @@
+<html lang="es" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial scale="1.0">
+    <title> Registro Proveedor </title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+
+<body>
+    <section class="principal">
+        <div class="imagen">
+            <img src="image/logo.avif" alt="logo" style="width: 100px;">
+        </div>
+        <div class="text">
+            <h1>AVENTONES</h1>
+        </div>
+    </section>
+    <section class="informacion">
+        <div class="registro">
+            <h1> User Registration drivers </h1>
+            <br></br>
+            <div class="input-container">
+                <div class="input-group">
+                    <legend class="title">First Name</legend>
+                    <input type="text" class="inpt-nombre">
+                </div>
+                <div class="input-group">
+                    <legend class="title">Last Name</legend>
+                    <input type="text" class="inpt-apellido">
+                </div>
+            </div>
+            <legend class="id"> Identification number </legend>
+            <input type="text" class="id">
+            <br></br>
+            <legend class="nac"> Birth date </legend>
+            <input type="datetime" class="inpNac">
+            <br></br>
+            <legend class="email"> Email </legend>
+            <input type="email" class="inpE">
+
+            <div class="input-container">
+                <div class="input-group">
+                    <br></br>
+                    <legend class="pass"> Password </legend>
+                    <input type="password" class="inpP">
+                </div>
+                <div class="input-group">
+                    <br></br>
+                    <legend class="pass"> Repeat Password </legend>
+                    <input type="password" class="inpP">
+                </div>
+            </div>
+
+            <legend class="address"> Address </legend>
+            <input type="text" class="inpA">
+
+            <div class="input-container">
+                <div class="input-group">
+                    <br></br>
+                    <legend class="country"> Country </legend>
+                    <select class="inpC">
+                        <option value="v"> </option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AL">Albania</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="ZW">Zimbabwe</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <br></br>
+                    <legend class="country"> State </legend>
+                    <input type="text" class="inpC">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <legend class="city"> City </legend>
+                    <input type="text" class="inpCi">
+                </div>
+                <div class="input-group">
+                    <legend class="city"> Phone number </legend>
+                    <input type="tel" class="inpCi">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <legend class="marca"> Brand of the vehicle </legend>
+                    <input type="text" class="inpMa">
+                </div>
+                <div class="input-group">
+                    <legend class="modelo"> Model of the vehicle </legend>
+                    <input type="text" class="inpMo">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <legend class="año"> Year of the vehicle </legend>
+                    <input type="text" class="inpYe">
+                </div>
+                <div class="input-group">
+                    <legend class="licencia"> License plate number </legend>
+                    <input type="text" class="inpLi">
+                </div>
+            </div>
+
+            <div class="register-wrapper">
+                <p class="already-user">Already an user?</p>
+                <button onclick="window.location.href='index.html'" class="btn-info" id="loginBtn">Login here</button>
+
+                <p class="register-driver"> Register as user?</p>
+                <button onclick="window.location.href='registro.html'" class="btn-info" id="registerBtn">Click here</button>
+            </div>
+        </div>
+    </section>
+    <div class="sign">
+        <button onclick="window.location.href='index.html'" class="btn-sign" id="loginBtn">Sign Up</button>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <nav>
+                <center>
+                    <a href="Home.html">Home |</a>&nbsp;&nbsp;
+                    <a href="#">Rides |</a>&nbsp;&nbsp;
+                    <a href="#">Bookings |</a>&nbsp;&nbsp;
+                    <a href="#">Settings |</a>&nbsp;&nbsp;
+                    <a href="index.html">Login |</a>&nbsp;&nbsp;
+                    <a href="registro.html">Register |</a>&nbsp;&nbsp;
+                </center>
+            </nav>
+        </div>
+    </div>
+    <div class="footer">
+        <img src="image/c.png" alt="Imagen pequeña">
+        <span>aventones.com</span>
+    </div>
+</body>
+
+</html>
