@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+    
+}
+.text {
+    color: black;
+    padding-left: 20px;
+}
+
+.text h1 {
+    font-size: 2em;
+}
+.search-input{
+    border-radius: 5px;
+    width: 20%;
+    color: gray;
+}
+.textos{
+    color:gray;
+    text-align: center;
+}
+.line{
+    color: gray;
+    text-align: center;
+}
+.imagen img {
+    max-width: 100%;
+    height: auto;
+}
+.dep, .arr, .day{
+    margin-bottom: 10px;
+}
+.nav-link {
+    background-color: transparent;
+    padding: 15px 25px;
+    color: gray;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 0px;
+}
+.ride{
+    margin: 20%;
+}
+.inp{
+    padding: 10px;
+    height: 40%;
+    margin-top: 20px;
+}
+.seat, .fee{
+    padding: 5px;
+    width: 15%;
+}
+.inpT{
+    padding: 5px;
+    border: 1px solid lightgray;
+    width: 15%;
+}
+.model{
+    padding: 5px;
+    border: 1px solid black;
+    width: 30%;
+}
+.year{
+    padding: 5px;
+    border: 1px solid black;
+    width: 18%;
+}
+.nav-link:hover {
+    background-color: blue;
+    color: white;
+}
+fieldset{
+    border: 0;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex; /* Establece el contenedor como flexbox */
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between;
+}
+.informacion{
+    border: 0;
+    margin: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex; /* Establece el contenedor como flexbox */
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between;
+}
+.link {
+    text-decoration: none;
+    color: gray;
+}
+
+.link:hover {
+    color: gray;
+}
+.M, .T, .W, .Th, .F, .S, .Su {
+    margin-right: 5px; /* Espacio entre los checkboxes */
+    margin-bottom: 5px;
+}
+.botones{
+    border: 0;
+    padding: 10px;
+    margin-top: 20px;
+    margin: 20%;
+    display: flex; /* Establece el contenedor como flexbox */
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between;
+}
+.nva{
+    color:blue;
+    cursor: pointer;
+}
+.nva:hover{
+    color: blue;
+}
+.nvs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+
+}
+.footer {
+    background-color: lightgray;
+    color: gray;
+    padding: 10px;
+    text-align: center;
+    position: block;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img {
+    max-width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
