@@ -29,6 +29,16 @@ body {
     color:gray;
     text-align: center;
 }
+.textos1{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+.IMAGE{
+    max-width: 25%;
+    height: auto;
+    margin-right: 10px;
+}
 .line{
     color: gray;
     text-align: center;
@@ -37,8 +47,13 @@ body {
     max-width: 100%;
     height: auto;
 }
-.dep, .arr, .day{
+.dep, .arr{
     margin-bottom: 10px;
+}
+.day{
+    font-weight: bold;
+    margin-bottom: 50px;
+    
 }
 .nav-link {
     background-color: transparent;
@@ -54,10 +69,16 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.rid{
+    text-align: center;
+}
 .inp{
     padding: 10px;
     height: 40%;
     margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 0;
 }
 .seat, .fee{
     padding: 5px;
@@ -108,8 +129,7 @@ fieldset{
     color: gray;
 }
 .M, .T, .W, .Th, .F, .S, .Su {
-    margin-right: 5px; /* Espacio entre los checkboxes */
-    margin-bottom: 5px;
+    margin: -20px;
 }
 .botones{
     border: 0;
@@ -141,7 +161,7 @@ fieldset{
 
 }
 .footer {
-    background-color: lightgray;
+    background-color: white;
     color: gray;
     padding: 10px;
     text-align: center;

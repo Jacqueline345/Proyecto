@@ -65,10 +65,7 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
-<<<<<<< HEAD
-=======
     cursor: pointer;
->>>>>>> ae19d78 (se agrega datos al proyecto)
 }
 fieldset {
     border: 1px solid #ccc;

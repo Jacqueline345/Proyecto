@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.text {
+    color: black;
+    padding-left: 20px;
+}
+
+.text h1 {
+    font-size: 2em;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+}
+
+.Edicion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.Edicion h1 {
+    font-size: 20px;
+    text-align: center;
+    color: gray;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    background-color: transparent;
+    padding: 15px 25px;
+    color: gray;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.nav-link:hover {
+    background-color: blue;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+a:hover {
+    color: gray;
+}
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.inpt-nombre,
+.inpt-apellido,
+.inpP,
+.inpC,
+.inpCi,
+.inpA,
+.inpE,
+.id,
+.inpNac {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin: 25%;
+    background-color: white;
+    padding: 20px;
+}
+
+.link {
+    text-decoration: blue;
+    color: blue;
+}
+
+.link:hover {
+    color: blue;
+}
+
+.btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    display: row;
+    background-color: blue;
+    color: white;
+    border: solid 1px blue;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: white;
+    color: gray;
+    padding: 10px;
+    text-align: center;
+    position: block;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img {
+    max-width: 20px;
+    height: auto;
+    margin-right: 10px;
+}

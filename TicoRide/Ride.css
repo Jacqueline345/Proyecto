@@ -65,8 +65,6 @@ body {
     color: lightgray;
     margin-top: 0;
 }
-<<<<<<< HEAD
-=======
 .button{
     display: block;
     width: 20%;
@@ -79,17 +77,11 @@ body {
     margin-bottom: 10px;
     border: 1px solid black;
 }
->>>>>>> ae19d78 (se agrega datos al proyecto)
 .table, th, td{
     border: 1px solid lightslategray;
     border-collapse: collapse;
 }
 .table{
-<<<<<<< HEAD
-=======
-    display: block;
-    width: 200%;
->>>>>>> ae19d78 (se agrega datos al proyecto)
     margin: 0;
     align-content: center;
 }

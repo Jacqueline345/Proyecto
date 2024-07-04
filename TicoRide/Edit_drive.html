@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial scale="1.0">
-    <title> Registro Proveedor </title>
-    <link rel="stylesheet" href="registro_prov.css">
+    <title> TicoRides</title>
+    <link rel="stylesheet" href="Edit_drive.css">
 </head>
 
 <body>
@@ -16,20 +16,36 @@
             <h1>AVENTONES</h1>
         </div>
     </section>
-    <section class="informacion">
-        <div class="registro">
-            <h1> User Registration drivers </h1>
+    <section class="principal">
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <center>
+                        <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                        <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
+                        <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                        <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
+                        <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                    </center>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <section class="Edicion">
+        <div class="editar">
+            <h1> Edit Driver </h1>
             <br></br>
             <div class="input-container">
                 <div class="input-group">
                     <legend class="title">First Name</legend>
-                    <input type="text" class="inpt-nombre">
+                    <input type="text" class="inpt-nombre" placeholder="Jacqueline">
                 </div>
                 <div class="input-group">
                     <legend class="title">Last Name</legend>
-                    <input type="text" class="inpt-apellido">
+                    <input type="text" class="inpt-apellido" placeholder="Molina">
                 </div>
             </div>
+
             <legend class="id"> Identification number </legend>
             <input type="text" class="id">
             <br></br>
@@ -37,7 +53,7 @@
             <input type="datetime" class="inpNac">
             <br></br>
             <legend class="email"> Email </legend>
-            <input type="email" class="inpE">
+            <input type="email" class="inpE" placeholder="yacquy958@gmail.com">
 
             <div class="input-container">
                 <div class="input-group">
@@ -53,14 +69,14 @@
             </div>
 
             <legend class="address"> Address </legend>
-            <input type="text" class="inpA">
+            <input type="text" class="inpA" placeholder="2km norte">
 
             <div class="input-container">
                 <div class="input-group">
                     <br></br>
                     <legend class="country"> Country </legend>
                     <select class="inpC">
-                        <option value="v"> </option>
+                        <option value="" disabled selected>Costa Rica</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AL">Albania</option>
                         <option value="DZ">Algeria</option>
@@ -70,13 +86,13 @@
                 <div class="input-group">
                     <br></br>
                     <legend class="country"> State </legend>
-                    <input type="text" class="inpC">
+                    <input type="text" class="inpC" placeholder="Alajuela">
                 </div>
             </div>
             <div class="input-container">
                 <div class="input-group">
                     <legend class="city"> City </legend>
-                    <input type="text" class="inpCi">
+                    <input type="text" class="inpCi" placeholder="Quesada">
                 </div>
                 <div class="input-group">
                     <legend class="city"> Phone number </legend>
@@ -103,19 +119,14 @@
                     <input type="text" class="inpLi">
                 </div>
             </div>
-
-            <div class="register-wrapper">
-                <p class="already-user">Already an user?</p>
-                <button onclick="window.location.href='index.html'" class="btn-info" id="loginBtn">Login here</button>
-
-                <p class="register-driver"> Register as user?</p>
-                <button onclick="window.location.href='registro.html'" class="btn-info" id="registerBtn">Click here</button>
-            </div>
         </div>
     </section>
-    <div class="sign">
-        <button onclick="window.location.href='index.html'" class="btn-sign" id="loginBtn">Sign Up</button>
-    </div>
+    <section class="boton">
+        <div class="buton">
+            <a href="#" class="link"> Cancel </a>&nbsp;&nbsp;
+            <button class="btn"> Save </button>
+        </div>
+    </section>
     <div class="container">
 
         <div class="row">
@@ -133,7 +144,7 @@
     </div>
     <div class="footer">
         <img src="image/c.png" alt="Imagen pequeña">
-        <span>aventones.com</span>
+        <span>Aventones.com</span>
     </div>
 </body>
 
