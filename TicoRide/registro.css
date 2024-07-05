@@ -37,7 +37,7 @@ body {
 .informacion h1 {
     font-size: 20px;
     text-align: center;
-    color: black;
+    color: gray;
 }
 
 .input-container {
@@ -114,7 +114,16 @@ body {
     position: block;
     bottom: 20px; 
     left: 50%; 
+    width: 15%;
     cursor: pointer;
+}
+.p1{
+    color: lightgray;
+}
+.line{
+    color: lightgray;
+    text-align: center;
+    line-height: normal;
 }
 a {
     text-decoration: none;
@@ -128,6 +137,7 @@ a:hover {
     background-color: white; 
     padding: 10px;
     text-align: center;
+    color: gray;
     position: block;
     bottom: 0;
     width: 100%;

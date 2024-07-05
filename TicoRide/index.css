@@ -12,6 +12,10 @@ body {
     background-color: white;
     padding: 20px;
 }
+.principal > .boton{
+    border: 1px solid blue;
+    margin: 5%;
+}
 
 .text {
     color: black;
@@ -124,3 +128,32 @@ body {
     border-radius: 10px;
     cursor: pointer;
 }
+.p1{
+    color: lightgray;
+}
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+a:hover {
+    color: lightslategray;
+}
+.footer {
+    background-color: white; 
+    padding: 10px;
+    text-align: center;
+    color: gray;
+    position: block;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer img {
+    max-width: 20px; 
+    height: auto;
+    margin-right: 10px; 
+  }

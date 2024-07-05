@@ -107,6 +107,19 @@ fieldset{
 .link:hover {
     color: gray;
 }
+.input-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; 
+    margin-right: 10px;
+}
 .M, .T, .W, .Th, .F, .S, .Su {
     margin-right: 5px; /* Espacio entre los checkboxes */
     margin-bottom: 5px;

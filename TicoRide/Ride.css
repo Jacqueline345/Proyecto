@@ -10,6 +10,7 @@ body {
     justify-content: center;
     background-color: white;
     padding: 20px;
+    margin-right: 20px;
     
 }
 .cont{
@@ -29,7 +30,9 @@ body {
     width: 20%;
     color: gray;
 }
-
+.user_icon{
+    vertical-align: middle;
+}
 .imagen img {
     max-width: 100%;
     height: auto;
@@ -67,7 +70,7 @@ body {
 }
 .button{
     display: block;
-    width: 20%;
+    width: 32%;
     background-color: blue;
     padding: 15px 25px;
     color: white;
@@ -78,6 +81,7 @@ body {
     border: 1px solid black;
 }
 .table, th, td{
+    padding: 500%;
     border: 1px solid lightslategray;
     border-collapse: collapse;
 }
@@ -106,7 +110,7 @@ body {
     color: gray;
 }
 .p1{
-    color: gray;
+    color: lightgray;
 }
 .footer {
     background-color: white;
