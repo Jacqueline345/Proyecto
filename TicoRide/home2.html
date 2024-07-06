@@ -20,49 +20,55 @@
         <div class="container">
             <div class="row">
                 <nav>
-                    <center>
-                        <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                        <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
-                        <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
-                        <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
-                        <img src="image/user_icon.jpg" width="25px" alt="user_icon">
-                    </center>
+                    <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
+                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
                 </nav>
             </div>
         </div>
     </section>
-    <section class="Buscar">
+    <section class="buscar">
         <div class="container">
             <h1 class="text"> Search rides </h1>
+            <p class="line">______________</p>
             <Fieldset>
-                <p class="from">From</p>
-                <select class="inpC">
-                    <option value="SC" disabled selected>Quesada</option>
-                    <option value="LF">La Fortuna</option>
-                    <option value="AN">Los Àngeles</option>
-                </select>
-                <p class="to">To</p>
-                <select class="inpC">
-                    <option value="SC" disabled selected>Zarcero</option>
-                    <option value="LF">La Fortuna</option>
-                    <option value="AN">Los Àngeles</option>
-                </select>
-                <button class="btn"> Find Rides </button>
-                <p class="Days"> Days</p>
-                <input type="checkbox" class="M">
-                <p>Mon</p>
-                <input type="checkbox" class="T">
-                <p>Tue</p>
-                <input type="checkbox" class="W">
-                <p>Wed</p>
-                <input type="checkbox" class="Th">
-                <p>Thu</p>
-                <input type="checkbox" class="F">
-                <p>Fri</p>
-                <input type="checkbox" class="S">
-                <p>Sat</p>
-                <input type="checkbox" class="Su">
-                <p>Sun</p>
+                <div class="input-container">
+                    <div class="input-group">
+                        <p class="from">From</p>
+                        <select class="inpC">
+                            <option value="SC" disabled selected>Quesada</option>
+                            <option value="LF">La Fortuna</option>
+                            <option value="AN">Los Àngeles</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <p class="to">To</p>
+                        <select class="inpC">
+                            <option value="SC" disabled selected>Zarcero</option>
+                            <option value="LF">La Fortuna</option>
+                            <option value="AN">Los Àngeles</option>
+                        </select>
+                    </div>
+                    <button class="btn"> Find Rides </button>
+                    <div class="input-container">
+                            <p class="Days"> Days</p>
+                            <input type="checkbox" class="M">
+                            <p>Mon</p>
+                            <input type="checkbox" class="T">
+                            <p>Tue</p>
+                            <input type="checkbox" class="W">
+                            <p>Wed</p>
+                            <input type="checkbox" class="Th">
+                            <p>Thu</p>
+                            <input type="checkbox" class="F">
+                            <p>Fri</p>
+                            <input type="checkbox" class="S">
+                            <p>Sat</p>
+                            <input type="checkbox" class="Su">
+                            <p>Sun</p>
+                        </div>
             </Fieldset>
             <p>Rides found from <span class="destacado"> Quesada </span> to <span class="destacado"> Zarcero </span></p>
             <table class="table" style="width: 100%;">
@@ -76,7 +82,7 @@
                     <th class="th">Actions</th>
                 </tr>
                 <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="20px"> barroyo</td>
+                    <td class="td"><img src="image/user_icon.jpg" width="10%"> barroyo</td>
                     <td class="td"><a href="#" class="SC">Quesada</a></td>
                     <td class="td">Alajuela</td>
                     <td class="td">2</td>
@@ -85,7 +91,7 @@
                     <td class="td"><a href="#" class="Req">Request</a></td>
                 </tr>
                 <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="20px"> barroyo</td>
+                    <td class="td"><img src="image/user_icon.jpg" width="10%"> barroyo</td>
                     <td class="td"><a href="#" class="SC">Quesada</a></td>
                     <td class="td">Naranjo</td>
                     <td class="td">1</td>
@@ -94,7 +100,7 @@
                     <td class="td"><a href="#" class="Req">Request</a></td>
                 </tr>
                 <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="20px"> yluna</td>
+                    <td class="td"><img src="image/user_icon.jpg" width="10%"> yluna</td>
                     <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
                     <td class="td">Naranjo</td>
                     <td class="td">1</td>
@@ -107,20 +113,25 @@
     </section>
     <section class="map">
         <div class="mapa">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.293019215229!2d-84.43028637251135!3d10.31841842975128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa065f2736779af%3A0xb19fc13e0aae988c!2sUTN%20San%20Carlos!5e0!3m2!1ses!2scr!4v1719871924187!5m2!1ses!2scr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.293019215229!2d-84.43028637251135!3d10.31841842975128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa065f2736779af%3A0xb19fc13e0aae988c!2sUTN%20San%20Carlos!5e0!3m2!1ses!2scr!4v1719871924187!5m2!1ses!2scr"
+                width="970" height="910" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </section>
     <br><br></br></br>
     <div class="container">
         <div class="row">
             <nav>
-                <center>
-                    <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
-                    <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
-                    <a href="registro.html" class="link">Register |</a>&nbsp;&nbsp;
-                </center>
+                <p class="p1">
+                    __________________________________________________________________________________________________________________________________________________________
+                </p>
+                <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
+                <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
+                <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
             </nav>
         </div>
     </div>

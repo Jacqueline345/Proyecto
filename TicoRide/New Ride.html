@@ -24,7 +24,7 @@
                     <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
-                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                    <img src="image/user_icon.jpg" width="35px" alt="user_icon">
                 </nav>
             </div>
         </div>
@@ -35,45 +35,57 @@
             <p class="line">_____________________</p>
             <div class="input-container">
                 <div class="input-group">
-                        <p class="dep"> Departure from </p>
-                        <input type="text" class="inp">
-            </div>
+                    <p class="dep"> Departure from </p>
+                    <input type="text" class="inp">
+                </div>
                 <div class="input-group">
                     <p class="arr"> Arrive To</p>
                     <input type="text" class="inp">
                 </div>
             </div>
-            <fieldset class="dias">
-                <p class="day"> Days </p>
+            <p class="day"> Days </p>
+            <div class="input-container">
                 <input type="checkbox" class="M">
-                <p>Mon</p>
+                <p class="M">Mon</p>
                 <input type="checkbox" class="T">
-                <p>Tue</p>
+                <p class="T">Tue</p>
                 <input type="checkbox" class="W">
-                <p>Wed</p>
+                <p class="W">Wed</p>
                 <input type="checkbox" class="Th">
-                <p>Thu</p>
+                <p class="Th">Thu</p>
                 <input type="checkbox" class="F">
-                <p>Fri</p>
+                <p class="F">Fri</p>
                 <input type="checkbox" class="S">
-                <p>Sat</p>
+                <p class="S">Sat</p>
                 <input type="checkbox" class="Su">
-                <p>Sun</p>
-            </fieldset>
-            <fieldset class="tiempo">
-                <p class="time"> Time </p>
-                <select class="time">
-                    <option value="SC" disabled selected>10:00 am</option>
-                    <option value="LF">11:00 am</option>
-                    <option value="AN">1:00 pm</option>
-                </select>
-                <p class="sea">Seats</p>
-                <input type="number" class="sea">
-                <p class="fee"> Fee </p>
-                <input type="number" class="fee">
-            </fieldset>
+                <p class="Su">Sun</p>
+            </div>
+            <fieldset>
+                <div class="input-container">
+                    <div class="input-group">
+                    <p class="tim"> Time </p>
+                    <select class="time">
+                        <option value="SC" disabled selected>10:00 am</option>
+                        <option value="LF">11:00 am</option>
+                        <option value="AN">1:00 pm</option>
+                    </select>
+                </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-group">
+                    <p class="sa">Seats</p>
+                    <input type="number" class="sea" value="2">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-group">
+                    <p class="fe"> Fee </p>
+                    <input type="number" class="fee" value="15">
+                    </div>
+                </div>
             <div>
-                <p> Vehicle Details</p>
+            </fieldset>
+                <p class="V"> Vehicle Details</p>
                 <fieldset class="informacion">
                     <p> Make </p>
                     <select class="inpT">
@@ -84,7 +96,7 @@
                     <p> Model </p>
                     <input type="text" class="model" placeholder="Car Model">
                     <p> Year </p>
-                    <input type="number" id="anio" class="year" name="anio" min="2020" max="2100" step="1">
+                    <input type="number" id="anio" class="year" name="anio" min="1900" max="2100" step="1", value="2020">
                 </fieldset>
             </div>
     </section>
@@ -107,7 +119,7 @@
                     <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
                     <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
-                    <a href="registro.html" class="link">Register |</a>&nbsp;&nbsp;
+                    <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
                 </center>
             </nav>
         </div>

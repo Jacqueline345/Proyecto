@@ -1,6 +1,6 @@
 body {
-    margin: 20px;
-    padding: 20px;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
@@ -17,12 +17,16 @@ body {
 .text {
     color: black;
     padding-left: 20px;
+
 }
 
 .text h1 {
     font-size: 2em;
 }
-
+.line{
+    color: lightgray;
+    text-align: center;
+}
 .imagen img {
     max-width: 100%;
     height: auto;
@@ -53,28 +57,41 @@ body {
     font-size: 25px;
     font-style: Arial;
     text-align: center;
-   text-decoration-line: underline;
+   
 }
-.btn{
+.input-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+    margin-right: 20px;
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; 
+    margin-right: 20px;
+}
+
+.btn{
+    display: block;
     text-align: center;
     background-color: blue;
     color: white;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
+    margin-right: 20px;
     cursor: pointer;
 }
 fieldset {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
-    display: flex; /* Establece el contenedor como flexbox */
-    align-items: center; /* Alinea verticalmente los elementos */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una línea */
-    justify-content: space-between;
+    width: 80%; /* Ocupa el 100% del ancho disponible */
+    box-sizing: border-box;
 }
 
 .from, .to, .btn {
@@ -86,21 +103,20 @@ fieldset {
     font-size: 14px;
     border: 1px solid black;
     border-radius: 4px;
-    margin-right: 10px; /* Espacio entre los elementos select */
+    margin-right: 20px; /* Espacio entre los elementos select */
 }
-.inpC:checked{
-    background-color: gray;
+.row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
-
 .Days {
-    margin-right: 10px; /* Espacio entre el texto 'Days' y los checkboxes */
-    margin-bottom: 10px;
+    margin-right: 20px; /* Espacio entre el texto 'Days' y los checkboxes */
     
 }
 
 .M, .T, .W, .Th, .F, .S, .Su {
-    margin-right: 5px; /* Espacio entre los checkboxes */
-    margin-bottom: 5px;
+    margin-right: 20px; /* Espacio entre los checkboxes */
 }
 .destacado{
     font-weight: bold;
@@ -110,20 +126,31 @@ fieldset {
     border-collapse: collapse;
 }
 .table{
-    margin: 5px;
-    align-content: center;
+    border: 1px solid lightslategray; /* Borde para la tabla */
+    border-collapse: collapse; /* Colapsar los bordes de las celdas */
+    border-spacing: 100%; /* Espacio entre las celdas (puedes ajustarlo según tu diseño) */
+    width: 100%; /* Ancho completo de la tabla */
+    margin-left: 1%;
 }
 .th, td{
-    padding: 10px;
-    text-align: center;
+    border: 1px solid lightslategray; /* Borde para las celdas */
+    padding: 8px; /* Espacio interno dentro de las celdas */
 }
 .th{
     background-color: lightgray;
     text-align: center;
 }
+.td{
+    text-align: center;
+}
+
+
 .td img {
-    vertical-align: middle;
-    margin-right: 5px;
+    vertical-align: middle; /* Alinea verticalmente la imagen con el texto */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+.mapa{
+    margin-left: 2%;
 }
 a{
     color: blue;
@@ -142,6 +169,9 @@ a:hover{
 
 .link:hover {
     color: gray;
+}
+.p1{
+    color: lightgray;
 }
 .footer {
     background-color: white;
