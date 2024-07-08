@@ -20,11 +20,19 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                        <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                        <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
-                        <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
-                        <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
-                        <img src="image/user_icon.jpg" width="35px" class="user_icon">&nbsp;&nbsp;
+                    <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
+                    <label for="toggle-options" class="user-icon">
+                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                    <input type="checkbox" id="toggle-options" class="toggle-options">
+                    <div class="opciones">
+                        <button onclick="window.close()" class="boton"> Logout </button>
+                        <button onclick="window.location.href='Settings.html'" class="boton"> Settings </button>
+                    </div>
+                    </div>
+
                 </nav>
             </div>
         </div>
@@ -33,8 +41,7 @@
         <div class="inf">
             <h1> My Rides </h1>
             <p>________________</p>
-            <br></br>
-            <button class="button">New ride</button>
+            <button onclick="window.location.href='New Ride.html'" class="button">New ride</button>
             <table class="table" style="width: 100%;">
                 <tr>
                     <th class="th">From</th>
@@ -71,19 +78,16 @@
             </table>
         </div>
     </section>
-    <br><br></br></br>
     <div class="container">
         <div class="row">
             <nav>
 <p class="p1">__________________________________________________________________________________________________________________________________________________________</p>
-                <center>
                     <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
+                    <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
+                    <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                    <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
                     <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                     <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
-                </center>
             </nav>
         </div>
     </div>

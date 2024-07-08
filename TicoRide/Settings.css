@@ -1,6 +1,6 @@
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
@@ -10,12 +10,7 @@ body {
     justify-content: center;
     background-color: white;
     padding: 20px;
-    margin-right: 20px;
     
-}
-.cont{
-    background-color: lightgray;
-    width: 100%;
 }
 .text {
     color: black;
@@ -30,26 +25,17 @@ body {
     width: 20%;
     color: gray;
 }
-.user_icon{
-    vertical-align: middle;
+.textos{
+    color:gray;
+    text-align: center;
+}
+.line{
+    color: gray;
+    text-align: center;
 }
 .imagen img {
     max-width: 100%;
     height: auto;
-}
-.nav-link {
-    background-color: transparent;
-    padding: 15px 25px;
-    color: gray;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 10px;
-    border: 0px;
-}
-
-.nav-link:hover {
-    background-color: blue;
-    color: white;
 }
 .user-icon {
     position: relative;
@@ -90,60 +76,18 @@ body {
 .boton:hover{
     background-color: gray;
 }
-.row{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-.informacion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    padding: 20px;
-}
-.informacion h1{
-    color: gray;
-    text-align: center;
-    margin-bottom: 0;
-}
-.informacion p{
-    text-align: center;
-    color: lightgray;
-    margin-top: 0;
-}
-.button{
-    display: block;
-    width: 32%;
-    background-color: blue;
+.nav-link {
+    background-color: transparent;
     padding: 15px 25px;
-    color: white;
+    color: gray;
     text-decoration: none;
-    border-radius: 0;
-    float: right;
-    margin-bottom: 10px;
-    border: 1px solid black;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 0px;
 }
-.table, th, td{
-    padding: 500%;
-    border: 1px solid lightslategray;
-    border-collapse: collapse;
-}
-.table{
-    margin: 0;
-    align-content: center;
-}
-.th, td{
-    padding: 10px;
-    text-align: center;
-}
-.th{
-    background-color: lightgray;
-    text-align: center;
-}
-.td img {
-    vertical-align: middle;
-    margin-right: 5px;
+.nav-link:hover {
+    background-color: blue;
+    color: white;
 }
 .link {
     text-decoration: none;
@@ -153,8 +97,29 @@ body {
 .link:hover {
     color: gray;
 }
+.Info{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+}
+.Botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 7.3%;
+    width: 100%;
+    line-height: 5%;
+    cursor: pointer;
+}
 .p1{
-    color: lightgray;
+    color:lightgray;
 }
 .footer {
     background-color: white;

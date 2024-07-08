@@ -24,7 +24,15 @@
                     <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
+                    <label for="toggle-options" class="user-icon">
                     <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                    <input type="checkbox" id="toggle-options" class="toggle-options">
+                    <div class="opciones">
+                        <button class="boton"> Logout </button>
+                        <button class="boton"> Settings </button>
+                    </div>
+                    </div>
+
                 </nav>
             </div>
         </div>
@@ -33,14 +41,18 @@
         <div class="rid">
             <h1 class="textos"> Edit Ride </h1>
             <p class="line">_____________________</p>
-            <fieldset class="prin">
-                <p class="dep"> Departure from </p>
-                <input type="text" class="inp" placeholder="Quesada">
-                <p class="arr"> Arrive To</p>
-                <input type="text" class="inp" placeholder="Zarcero">
-            </fieldset>
-            <fieldset class="dias">
-                <p class="day"> Days </p>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="dep"> Departure from </p>
+                    <input type="text" class="inp" placeholder="Quesada">
+                </div>
+                <div class="input-group">
+                    <p class="arr"> Arrive To</p>
+                    <input type="text" class="inp" placeholder="Zarcero">
+                </div>
+            </div>
+            <p class="day"> Days </p>
+            <div class="input-container">
                 <input type="checkbox" class="M">
                 <p>Mon</p>
                 <input type="checkbox" class="T">
@@ -55,56 +67,66 @@
                 <p>Sat</p>
                 <input type="checkbox" class="Su">
                 <p>Sun</p>
-            </fieldset>
-            <fieldset class="tiempo">
-                <p class="time"> Time </p>
-                <select class="time">
-                    <option value="SC" disabled selected>10:00 am</option>
-                    <option value="LF">11:00 am</option>
-                    <option value="AN">1:00 pm</option>
-                </select>
-                <p class="sea">Seats</p>
-                <input type="number" class="sea">
-                <p class="fee"> Fee </p>
-                <input type="number" class="fee">
-            </fieldset>
+            </div>
+                <div class="input-container">
+                    <div class="input-group">
+                        <p class="time1"> Time </p>
+                        <select class="time">
+                            <option value="SC" disabled selected>10:00 am</option>
+                            <option value="LF">11:00 am</option>
+                            <option value="AN">1:00 pm</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <p class="sa">Seats</p>
+                        <input type="number" class="sea" value="2">
+                    </div>
+                    <div class="input-group">
+                        <p class="fe"> Fee </p>
+                        <input type="number" class="fee" value="15">
+                    </div>
+                </div>
             <div>
-                <p> Vehicle Details</p>
+                <p class="V"> Vehicle Details</p>
                 <fieldset class="informacion">
-                    <p> Make </p>
-                    <select class="inpT">
-                        <option value="SC" disabled selected>Nissan</option>
-                        <option value="LF">Toyota</option>
-                        <option value="AN">Jeep</option>
-                    </select>
-                    <p> Model </p>
-                    <input type="text" class="model" placeholder="Pathfinder">
-                    <p> Year </p>
-                    <input type="number" id="anio" class="year" name="anio" min="2020" max="2100" step="1">
+                    <div class="input-container">
+                        <div class="input-group">
+                            <p class="make"> Make </p>
+                            <select class="inpT">
+                                <option value="SC" disabled selected>Nissan</option>
+                                <option value="LF">Toyota</option>
+                                <option value="AN">Jeep</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <p class="models"> Model </p>
+                            <input type="text" class="model" placeholder="Pathfinder">
+                        </div>
+                        <div class="input-group">
+                            <p class="years"> Year </p>
+                            <input type="number" id="anio" class="year" name="anio" min="1900" max="2100" step="1"
+                                value="2015">
+                        </div>
+                    </div>
                 </fieldset>
+                <div class="botones">
+                    <a href="#" class="nva"> Cancel </a>&nbsp;&nbsp;
+                    <button class="nvs"> Save </button>
+                </div>
             </div>
     </section>
-    <section class="boton">
-        <div class="botones">
-            <a href="#" class="nva"> Cancel </a>
-            <button class="nvs"> Save </button>
-        </div>
-    </section>
-    <br><br></br></br>
     <div class="container">
         <div class="row">
             <nav>
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <center>
                     <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
                     <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                     <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
-                </center>
             </nav>
         </div>
     </div>

@@ -5,6 +5,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .principal {
     display: flex;
     justify-content: center;
@@ -12,11 +17,6 @@ body {
     background-color: white;
     padding: 20px;
 }
-.principal > .boton{
-    border: 1px solid blue;
-    margin: 5%;
-}
-
 .text {
     color: black;
     padding-left: 20px;
@@ -30,7 +30,10 @@ body {
     max-width: 100%;
     height: auto;
 }
-
+.contenedor{
+    border: 1px solid blue;
+    margin: 10%;
+}
 .boton {
     display: flex;
     justify-content: center;

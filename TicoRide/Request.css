@@ -50,10 +50,14 @@ body {
 .dep, .arr{
     margin-bottom: 10px;
 }
-.day{
+.Days{
     font-weight: bold;
-    margin-bottom: 50px;
+    text-align: left;
+    margin-left: 5%;
     
+}
+.sa,.fe,.time1,.make,.mode,.yea,.dep,.arr{
+    font-weight: bold;
 }
 .nav-link {
     background-color: transparent;
@@ -64,13 +68,66 @@ body {
     border-radius: 10px;
     border: 0px;
 }
+.user-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-options {
+    display: none;
+}
+
+.opciones {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+.toggle-options:checked ~ .opciones {
+    visibility: visible;
+    opacity: 1;
+}
+
+.opciones button {
+    display: block;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.boton{
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    padding: 12px 42px;
+}
+.boton:hover{
+    background-color: gray;
+}
 .ride{
     margin: 20%;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 .rid{
     text-align: center;
+}
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; 
+    margin-right: 20px;
 }
 .inp{
     padding: 10px;
@@ -80,24 +137,32 @@ body {
     font-size: 14px;
     border: 0;
 }
-.seat, .fee{
-    padding: 5px;
+.time{
+    border: 0;
     width: 15%;
+}
+.tiempo{
+    margin-left: 4%;
+}
+.sea, .fee{
+    padding: 5px;
+    width: 11.5%;
+    border: 0;
 }
 .inpT{
     padding: 5px;
-    border: 1px solid lightgray;
-    width: 15%;
+    border: 0;
+    width: 16.5%;
 }
 .model{
     padding: 5px;
-    border: 1px solid black;
-    width: 30%;
+    border: 0;
+    width: 26%;
 }
 .year{
     padding: 5px;
-    border: 1px solid black;
-    width: 18%;
+    border: 0;
+    width: 11.5%;
 }
 .nav-link:hover {
     background-color: blue;
@@ -110,11 +175,12 @@ fieldset{
     display: flex; /* Establece el contenedor como flexbox */
     align-items: center; /* Alinea verticalmente los elementos */
     justify-content: space-between;
+    margin-left: 13.5%;
 }
 .informacion{
     border: 1px solid lightgray;
     margin: 20px;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 20px;
     display: flex; /* Establece el contenedor como flexbox */
     align-items: center; /* Alinea verticalmente los elementos */
@@ -128,20 +194,19 @@ fieldset{
 .link:hover {
     color: gray;
 }
-.M, .T, .W, .Th, .F, .S, .Su {
-    margin: -20px;
-}
-.botones{
+
+.boton{
     border: 0;
     padding: 10px;
-    margin-top: 20px;
-    margin: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
     display: flex; /* Establece el contenedor como flexbox */
     align-items: center; /* Alinea verticalmente los elementos */
     justify-content: space-between;
 }
 .nva{
     color:blue;
+    margin-left: 4%;
     cursor: pointer;
 }
 .nva:hover{
@@ -156,9 +221,18 @@ fieldset{
     color: white;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
+    margin-right: 7.3%;
+    width: 23.5%;
     cursor: pointer;
 
+}
+.V{
+    text-align: left;
+    margin-left: 2.5%;
+}
+.p1{
+    color:lightgray;
 }
 .footer {
     background-color: white;

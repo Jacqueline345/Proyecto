@@ -19,12 +19,20 @@
     <section class="principal">
         <div class="container">
             <div class="row">
-                <nav>
+                <nav class="cont">
                     <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
                     <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
+                    <label for="toggle-options" class="user-icon">
                     <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                    <input type="checkbox" id="toggle-options" class="toggle-options">
+                    <div class="opciones">
+                        <button class="boton"> Logout </button>
+                        <button class="boton"> Settings </button>
+                    </div>
+                    </div>
+
                 </nav>
             </div>
         </div>
@@ -35,40 +43,40 @@
             <p class="line">______________</p>
             <Fieldset>
                 <div class="input-container">
+                    <p class="from">From</p>
                     <div class="input-group">
-                        <p class="from">From</p>
                         <select class="inpC">
                             <option value="SC" disabled selected>Quesada</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
                         </select>
                     </div>
-                    <div class="input-group">
                         <p class="to">To</p>
+                        <div class="input-group">
                         <select class="inpC">
                             <option value="SC" disabled selected>Zarcero</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
                         </select>
                     </div>
-                    <button class="btn"> Find Rides </button>
-                    <div class="input-container">
-                            <p class="Days"> Days</p>
-                            <input type="checkbox" class="M">
-                            <p>Mon</p>
-                            <input type="checkbox" class="T">
-                            <p>Tue</p>
-                            <input type="checkbox" class="W">
-                            <p>Wed</p>
-                            <input type="checkbox" class="Th">
-                            <p>Thu</p>
-                            <input type="checkbox" class="F">
-                            <p>Fri</p>
-                            <input type="checkbox" class="S">
-                            <p>Sat</p>
-                            <input type="checkbox" class="Su">
-                            <p>Sun</p>
-                        </div>
+                <button class="btn"> Find Rides </button>
+                <div class="input-container">
+                    <p class="Days"> Days</p>
+                    <input type="checkbox" class="M">
+                    <p>Mon</p>
+                    <input type="checkbox" class="T">
+                    <p>Tue</p>
+                    <input type="checkbox" class="W">
+                    <p>Wed</p>
+                    <input type="checkbox" class="Th">
+                    <p>Thu</p>
+                    <input type="checkbox" class="F">
+                    <p>Fri</p>
+                    <input type="checkbox" class="S">
+                    <p>Sat</p>
+                    <input type="checkbox" class="Su">
+                    <p>Sun</p>
+                </div>
             </Fieldset>
             <p>Rides found from <span class="destacado"> Quesada </span> to <span class="destacado"> Zarcero </span></p>
             <table class="table" style="width: 100%;">
@@ -78,7 +86,7 @@
                     <th class="th">To</th>
                     <th class="th">Seats</th>
                     <th class="th">Car</th>
-                    <th class="th">Free</th>
+                    <th class="th">Fee</th>
                     <th class="th">Actions</th>
                 </tr>
                 <tr>
@@ -115,11 +123,10 @@
         <div class="mapa">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.293019215229!2d-84.43028637251135!3d10.31841842975128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa065f2736779af%3A0xb19fc13e0aae988c!2sUTN%20San%20Carlos!5e0!3m2!1ses!2scr!4v1719871924187!5m2!1ses!2scr"
-                width="970" height="910" style="border:0;" allowfullscreen="" loading="lazy"
+                width="1010" height="1500" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
-    <br><br></br></br>
     <div class="container">
         <div class="row">
             <nav>

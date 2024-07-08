@@ -37,13 +37,12 @@ body {
     max-width: 100%;
     height: auto;
 }
-.cont{
-    background-color: lightgray;
-    width: 100%;
-}
 .dep, .arr, .day{
     margin-bottom: 10px;
-    
+}
+.day{
+    text-align: left;
+    margin-left: 5%;
 }
 .nav-link {
     background-color: transparent;
@@ -55,72 +54,147 @@ body {
     border: 0px;
 }
 .ride{
-    margin-bottom: 25%;
-    margin-left: 25%;
-    margin-right: 25%;
-    box-sizing: border-box;
+    margin: 30%;
+    margin-top: 10px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.user-icon {
+    position: relative;
+    cursor: pointer;
+}
 
+.toggle-options {
+    display: none;
+}
+
+.opciones {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+.toggle-options:checked ~ .opciones {
+    visibility: visible;
+    opacity: 1;
+}
+
+.opciones button {
+    display: block;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.boton{
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    padding: 12px 42px;
+}
+.boton:hover{
+    background-color: gray;
+}
+.time{
+    border: 1px solid lightgray;
+    width: 165%;
+    padding: 10px;
 }
 .inp{
-    padding: 11px;
-    width: 145.5%;
+    padding: 12px;
+    width: 147%;
     margin-top: 20px;
 }
 .sa{
     text-align: center;
+    margin-left: 75%;
 }
 .sea{
     display: flex;
     justify-content: center;
-    margin-left: 40%;
-}
-.sea, .fee{
     padding: 5px;
     border: 1px solid black;
     width: 59%;
+    margin-left: 75%;
+
 }
-.time{
+.fee{
+    padding: 5px;
+    border: 1px solid black;
+    width: 52%;
+    margin-left: 100%;
+
+}
+
+.fe{
+    margin-left: 100%;
+}
+
+.inpT{
     padding: 5px;
     border: 1px solid lightgray;
-    width: 180%;
-    justify-content: flex-start;
+    width: 158%;
+    margin-right: 10px;
 }
-.inpT{
-    padding: 8px;
-    border: 1px solid lightgray;
-    width: 20%;
+.models, .years,.model,.year{
+    margin-left: 60%;
+    margin-right: 50%;
+}
+.models,.model{
+    align-content: center;
+}
+.year,.years{
+    align-content: right;
 }
 .model{
-    padding: 8px;
+    padding: 5px;
     border: 1px solid black;
-    width: 26.5%;
+    width: 94%;
+    margin-right: 10px;
 }
 .year{
-    padding: 8px;
+    padding: 5px;
     border: 1px solid black;
-    width: 13.5%;
+    width: 107%;
+    margin-left: 150%;
+}
+.years{
+    margin-left: 150%;
 }
 .nav-link:hover {
     background-color: blue;
     color: white;
 }
-fieldset{
-    border: 0;
-    padding: 10px;
-    margin-top: 20px;
-    display: flex; /* Establece el contenedor como flexbox */
-    align-items: center; /* Alinea verticalmente los elementos */
-    justify-content: space-between;
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+    margin-left: 5%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; 
 }
 .informacion{
     border: 1px solid lightgray;
     margin: 20px;
-    padding: 44px;
-    width: 100%;
+    padding: 10px;
     margin-bottom: 20px;
+    width: 108%;
     display: flex; /* Establece el contenedor como flexbox */
     align-items: center; /* Alinea verticalmente los elementos */
     justify-content: space-between;
+    margin-left: 5%;
 }
 .link {
     text-decoration: none;
@@ -130,38 +204,28 @@ fieldset{
 .link:hover {
     color: gray;
 }
-.input-container {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    margin-bottom: 20px; 
+.M, .T, .W, .Th, .F, .S, .Su {
+    margin-right: 5px; /* Espacio entre los checkboxes */
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px; 
-}
-
 .botones{
-    border: 0;
-    padding: 10px;
-    margin-top: 20px;
-    margin: 20%;
-    display: flex; /* Establece el contenedor como flexbox */
-    align-items: center; /* Alinea verticalmente los elementos */
-    justify-content: space-between;
+    display: flex;
+    align-items: center; 
 }
 .nva{
     color:blue;
+    margin-left:5%;
     cursor: pointer;
 }
 .nva:hover{
     color: blue;
 }
 .nvs{
-    display: flex;
+    display: row;
     justify-content: center;
+    width: 34%;
+    margin-left: 90.5%;
     align-items: center;
     text-align: center;
     background-color: blue;
@@ -169,15 +233,18 @@ fieldset{
     border: 1px solid black;
     border-radius: 5px;
     padding: 12px;
-    width: 23.5%;
     cursor: pointer;
 
 }
-.p1{
+.line{
     color: lightgray;
 }
-.v{
-    margin-left: 3%;
+.V{
+    text-align: left;
+    margin-left:5%;
+}
+.p1{
+    color: lightgray;
 }
 .footer {
     background-color: lightgray;

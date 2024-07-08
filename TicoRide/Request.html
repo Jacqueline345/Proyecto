@@ -24,7 +24,15 @@
                     <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
+                    <label for="toggle-options" class="user-icon">
                     <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                    <input type="checkbox" id="toggle-options" class="toggle-options">
+                    <div class="opciones">
+                        <button class="boton"> Logout </button>
+                        <button class="boton"> Settings </button>
+                    </div>
+                    </div>
+
                 </nav>
             </div>
         </div>
@@ -37,63 +45,59 @@
             <p class="textos1">barroyo</p>
             <fieldset class="prin">
                 <p class="dep"> Departure from </p>
-               <span><input type="text" class="inp" placeholder="Quesada"></span>
+                <span><input type="text" class="inp" placeholder="Quesada"></span>
                 <p class="arr"> Arrive To</p>
                 <input type="text" class="inp" placeholder="Zarcero">
             </fieldset>
-            <fieldset class="dias">
-                <p class="day"> Days </p>
+            <p class="Days"> Days</p>
+            <div class="input-container">
                 <input type="checkbox" class="M">
-                <p class="M">Mon</p>
+                <p>Mon</p>
                 <input type="checkbox" class="T">
-                <p class="T">Tue</p>
+                <p>Tue</p>
                 <input type="checkbox" class="W">
-                <p class="W">Wed</p>
+                <p>Wed</p>
                 <input type="checkbox" class="Th">
-                <p class="Th">Thu</p>
+                <p>Thu</p>
                 <input type="checkbox" class="F">
-                <p class="F">Fri</p>
+                <p>Fri</p>
                 <input type="checkbox" class="S">
-                <p class="S">Sat</p>
+                <p>Sat</p>
                 <input type="checkbox" class="Su">
-                <p class="Su">Sun</p>
-
-            </fieldset>
+                <p>Sun</p>
+            </div>
             <fieldset class="tiempo">
-                <p class="time"> Time </p>
+                <p class="time1"> Time </p>
                 <select class="time">
                     <option value="SC" disabled selected>10:00 am</option>
                     <option value="LF">11:00 am</option>
                     <option value="AN">1:00 pm</option>
                 </select>
-                <p class="sea">Seats</p>
-                <input type="number" class="sea">
-                <p class="fee"> Fee </p>
-                <input type="number" class="fee">
+                <p class="sa">Seats</p>
+                <input type="number" class="sea" value="2">
+                <p class="fe"> Fee </p>
+                <input type="number" class="fee" value="15">
             </fieldset>
             <div>
-                <p> Vehicle Details</p>
+                <p class="V"> Vehicle Details</p>
                 <fieldset class="informacion">
-                    <p> Make </p>
+                    <p class="make"> Make </p>
                     <select class="inpT">
                         <option value="SC" disabled selected>Nissan</option>
                         <option value="LF">Toyota</option>
                         <option value="AN">Jeep</option>
                     </select>
-                    <p> Model </p>
+                    <p class="mode"> Model </p>
                     <input type="text" class="model" placeholder="March">
-                    <p> Year </p>
-                    <input type="number" id="anio" class="year" name="anio" min="2020" max="2100" step="1">
+                    <p class="yea"> Year </p>
+                    <input type="number" id="anio" class="year" name="anio" min="1900" max="2100" step="1" value="2020">
                 </fieldset>
             </div>
-    </section>
-    <section class="boton">
-        <div class="botones">
+            <div class="boton">
             <a href="#" class="nva"> Cancel </a>
             <button class="nvs"> Request </button>
         </div>
     </section>
-    <br><br></br></br>
     <div class="container">
         <div class="row">
             <nav>

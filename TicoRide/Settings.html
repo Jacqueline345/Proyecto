@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial scale="1.0">
     <title> TicoRides</title>
-    <link rel="stylesheet" href="Booking.css">
+    <link rel="stylesheet" href="Settings.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <div class="row">
                 <nav class="cont">
                     <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
@@ -37,41 +37,28 @@
             </div>
         </div>
     </section>
-    <section class="informacion">
-        <div class="inf">
-            <h1> Bookings </h1>
-            <p>_______________________</p>
-            <br></br>
-            <table class="table">                                                                                                                                                                                                                                                                                                                                                                                                                                           
-                <tr>
-                    <th class="th"> User </th>
-                    <th class="th"> Ride </th>
-                    <th class="th"> Accept / Reject</th>
-                </tr>
-                <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="24px"> fulano </td>
-                    <td class="td">Ciudad Quesada - Naranjo </td>
-                    <td class="td"><a href="#" class="SC">Accept</a>    |   <a href="#" class="SC">Reject</a></td>
-                </tr>
-                <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="24px"> yluna </td>
-                    <td class="td">Fortuna - San José </td>
-                    <td class="td"><a href="#" class="SC"> Accept </a>    |   <a href="#" class="SC"> Reject </a></td>
-                </tr>
-            </table>
+    <Section class="Info">
+        <div class="prin">
+            <h1 class="textos"> Settings </h1>
+            <p class="line">________________</p>
+            <button onclick="window.location.href='New Ride.html'" class="Botones"> New ride </button>&nbsp;&nbsp;
+            <button onclick="window.location.href='Edit_ride.html'" class="Botones"> Edit Ride </button>&nbsp;&nbsp;
+            <button onclick="window.location.href='Request.html'"  class="Botones"> Request </button>&nbsp;&nbsp;
+            <button onclick="window.location.href='Booking.html'" class="Botones"> Bookings </button>
         </div>
-    </section>
-    <br><br></br></br>
+    </Section>
     <div class="container">
         <div class="row">
             <nav>
 <p class="p1">__________________________________________________________________________________________________________________________________________________________</p>
+                <center>
                     <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
                     <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
                     <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                     <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
+                </center>
             </nav>
         </div>
     </div>
@@ -80,5 +67,4 @@
         <span>Aventones.com</span>
     </div>
 </body>
-
 </html>

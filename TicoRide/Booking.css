@@ -48,6 +48,45 @@ body {
     background-color: blue;
     color: white;
 }
+.user-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-options {
+    display: none;
+}
+
+.opciones {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+.toggle-options:checked ~ .opciones {
+    visibility: visible;
+    opacity: 1;
+}
+
+.opciones button {
+    display: block;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.boton{
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    padding: 12px 42px;
+}
+.boton:hover{
+    background-color: gray;
+}
 .informacion{
     display: flex;
     justify-content: center;
@@ -66,12 +105,15 @@ body {
     margin-top: 0;
 }
 .table, th, td{
-    border: 1px solid lightslategray;
+    border: 1px solid lightgray;
     border-collapse: collapse;
 }
 .table{
-    margin: 0;
-    align-content: center;
+    border: 1px solid lightgray; /* Borde para la tabla */
+    border-collapse: collapse; /* Colapsar los bordes de las celdas */
+    border-spacing: 100%; /* Espacio entre las celdas (puedes ajustarlo según tu diseño) */
+    width: 100%;
+    margin-left: 1%;
 }
 .th, td{
     padding: 10px;
@@ -81,6 +123,7 @@ body {
     background-color: lightgray;
     text-align: center;
 }
+
 .td img {
     vertical-align: middle;
     margin-right: 5px;
@@ -93,8 +136,13 @@ body {
 .link:hover {
     color: gray;
 }
+.row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .p1{
-    color: gray;
+    color: lightgray;
 }
 .footer {
     background-color: lightgray;
