@@ -59,7 +59,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 28%;
     background-color: white;
     visibility: hidden;
     opacity: 0;

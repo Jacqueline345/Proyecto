@@ -45,6 +45,9 @@ body {
     background-color: blue;
     color: white;
 }
+.cont{
+    background-color: lightgray;
+}
 .user-icon {
     position: relative;
     cursor: pointer;
@@ -56,7 +59,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 27.7%;
     background-color: white;
     visibility: hidden;
     opacity: 0;

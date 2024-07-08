@@ -15,7 +15,6 @@ body {
 }
 .cont{
     background-color: lightgray;
-    width: 100%;
 }
 .text {
     color: black;
@@ -62,7 +61,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 28.5%;
     background-color: white;
     visibility: hidden;
     opacity: 0;
@@ -131,6 +130,7 @@ body {
 }
 .table{
     margin: 0;
+    width: 100%;
     align-content: center;
 }
 .th, td{

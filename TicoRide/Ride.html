@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial scale="1.0">
+    <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
     <link rel="stylesheet" href="Ride.css">
 </head>
@@ -25,14 +26,13 @@
                     <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
-                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                        <img src="image/user_icon.jpg" width="25" alt="user_icon">
+                    </label>
                     <input type="checkbox" id="toggle-options" class="toggle-options">
                     <div class="opciones">
-                        <button onclick="window.close()" class="boton"> Logout </button>
+                        <button onclick="window.location.href='index.html'" class="boton"> Logout </button>
                         <button onclick="window.location.href='Settings.html'" class="boton"> Settings </button>
                     </div>
-                    </div>
-
                 </nav>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <h1> My Rides </h1>
             <p>________________</p>
             <button onclick="window.location.href='New Ride.html'" class="button">New ride</button>
-            <table class="table" style="width: 100%;">
+            <table class="table">
                 <tr>
                     <th class="th">From</th>
                     <th class="th">To</th>
@@ -57,7 +57,7 @@
                     <td class="td">2</td>
                     <td class="td">Nissan Pathfinder 2015</td>
                     <td class="td">$5</td>
-                    <td class="td"><a href="#" class="Req">Edit | Delete</a></td>
+                    <td class="td"><a href="Edit_ride.html" class="Req">Edit | Delete</a></td>
                 </tr>
                 <tr>
                     <td class="td"><a href="#" class="SC">Quesada</a></td>
@@ -65,7 +65,7 @@
                     <td class="td">1</td>
                     <td class="td">Toyota Corolla 2020</td>
                     <td class="td">$10</td>
-                    <td class="td"><a href="#" class="Req">Edit | Delete</a></td>
+                    <td class="td"><a href="Edit_ride.html" class="Req">Edit | Delete</a></td>
                 </tr>
                 <tr>
                     <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
@@ -73,7 +73,7 @@
                     <td class="td">1</td>
                     <td class="td">Ford Festiva 1990</td>
                     <td class="td">--</td>
-                    <td class="td"><a href="#" class="Req">Edit | Delete</a></td>
+                    <td class="td"><a href="Edit_ride.html" class="Req">Edit | Delete</a></td>
                 </tr>
             </table>
         </div>
@@ -81,13 +81,15 @@
     <div class="container">
         <div class="row">
             <nav>
-<p class="p1">__________________________________________________________________________________________________________________________________________________________</p>
-                    <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
-                    <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
-                    <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
-                    <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
-                    <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
-                    <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
+                <p class="p1">
+                    __________________________________________________________________________________________________________________________________________________________
+                </p>
+                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
+                <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
+                <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
             </nav>
         </div>
     </div>

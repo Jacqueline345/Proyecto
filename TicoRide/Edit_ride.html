@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial scale="1.0">
+    <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
     <link rel="stylesheet" href="Edit_ride.css">
 </head>
@@ -20,19 +21,18 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
-                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                        <img src="image/user_icon.jpg" width="25" alt="user_icon">
+                    </label>
                     <input type="checkbox" id="toggle-options" class="toggle-options">
                     <div class="opciones">
-                        <button class="boton"> Logout </button>
-                        <button class="boton"> Settings </button>
+                        <button onclick="window.location.href='index.html'" class="boton"> Logout </button>
+                        <button onclick="window.location.href='Settings.html'" class="boton"> Settings </button>
                     </div>
-                    </div>
-
                 </nav>
             </div>
         </div>
@@ -51,6 +51,7 @@
                     <input type="text" class="inp" placeholder="Zarcero">
                 </div>
             </div>
+        </div>
             <p class="day"> Days </p>
             <div class="input-container">
                 <input type="checkbox" class="M">
@@ -68,24 +69,24 @@
                 <input type="checkbox" class="Su">
                 <p>Sun</p>
             </div>
-                <div class="input-container">
-                    <div class="input-group">
-                        <p class="time1"> Time </p>
-                        <select class="time">
-                            <option value="SC" disabled selected>10:00 am</option>
-                            <option value="LF">11:00 am</option>
-                            <option value="AN">1:00 pm</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <p class="sa">Seats</p>
-                        <input type="number" class="sea" value="2">
-                    </div>
-                    <div class="input-group">
-                        <p class="fe"> Fee </p>
-                        <input type="number" class="fee" value="15">
-                    </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="time1"> Time </p>
+                    <select class="time">
+                        <option value="SC" disabled selected>10:00 am</option>
+                        <option value="LF">11:00 am</option>
+                        <option value="AN">1:00 pm</option>
+                    </select>
                 </div>
+                <div class="input-group">
+                    <p class="sa">Seats</p>
+                    <input type="number" class="sea" value="2">
+                </div>
+                <div class="input-group">
+                    <p class="fe"> Fee </p>
+                    <input type="number" class="fee" value="15">
+                </div>
+            </div>
             <div>
                 <p class="V"> Vehicle Details</p>
                 <fieldset class="informacion">
@@ -110,7 +111,7 @@
                     </div>
                 </fieldset>
                 <div class="botones">
-                    <a href="#" class="nva"> Cancel </a>&nbsp;&nbsp;
+                    <a href="#" onclick="window.close()" class="nva"> Cancel </a>&nbsp;&nbsp;
                     <button class="nvs"> Save </button>
                 </div>
             </div>
@@ -121,12 +122,12 @@
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                    <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
-                    <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
-                    <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
+                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
+                <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
+                <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
             </nav>
         </div>
     </div>

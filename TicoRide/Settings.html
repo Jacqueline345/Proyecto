@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial scale="1.0">
+    <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
     <link rel="stylesheet" href="Settings.css">
 </head>
@@ -20,19 +21,18 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
-                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                        <img src="image/user_icon.jpg" width="25" alt="user_icon">
+                    </label>
                     <input type="checkbox" id="toggle-options" class="toggle-options">
                     <div class="opciones">
-                        <button class="boton"> Logout </button>
-                        <button class="boton"> Settings </button>
+                        <button onclick="window.location.href='index.html'" class="boton"> Logout </button>
+                        <button onclick="window.location.href='Settings.html'" class="boton"> Settings </button>
                     </div>
-                    </div>
-
                 </nav>
             </div>
         </div>
@@ -41,24 +41,23 @@
         <div class="prin">
             <h1 class="textos"> Settings </h1>
             <p class="line">________________</p>
-            <button onclick="window.location.href='New Ride.html'" class="Botones"> New ride </button>&nbsp;&nbsp;
-            <button onclick="window.location.href='Edit_ride.html'" class="Botones"> Edit Ride </button>&nbsp;&nbsp;
-            <button onclick="window.location.href='Request.html'"  class="Botones"> Request </button>&nbsp;&nbsp;
-            <button onclick="window.location.href='Booking.html'" class="Botones"> Bookings </button>
+            <button onclick="window.location.href='Home.html'" class="Botones"> Edit profile </button>&nbsp;&nbsp;
+            <button onclick="window.location.href='Edit_drive.html'" class="Botones"> Edit Drive </button>&nbsp;&nbsp;
+            <button onclick="window.location.href='Request.html'" class="Botones"> Request </button>&nbsp;&nbsp;
         </div>
     </Section>
     <div class="container">
         <div class="row">
             <nav>
-<p class="p1">__________________________________________________________________________________________________________________________________________________________</p>
-                <center>
-                    <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
-                    <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
-                    <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
-                    <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
-                </center>
+                <p class="p1">
+                    __________________________________________________________________________________________________________________________________________________________
+                </p>
+                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
+                <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
+                <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
             </nav>
         </div>
     </div>
@@ -67,4 +66,5 @@
         <span>Aventones.com</span>
     </div>
 </body>
+
 </html>

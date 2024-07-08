@@ -68,6 +68,9 @@ body {
     border-radius: 10px;
     border: 0px;
 }
+.cont{
+    background-color: lightgray;
+}
 .user-icon {
     position: relative;
     cursor: pointer;
@@ -79,7 +82,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 28%;
     background-color: white;
     visibility: hidden;
     opacity: 0;
@@ -195,7 +198,7 @@ fieldset{
     color: gray;
 }
 
-.boton{
+.boton1{
     border: 0;
     padding: 10px;
     margin-top: auto;
@@ -233,6 +236,11 @@ fieldset{
 }
 .p1{
     color:lightgray;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 .footer {
     background-color: white;

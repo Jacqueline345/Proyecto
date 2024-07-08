@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial scale="1.0">
+    <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
     <link rel="stylesheet" href="home2.css">
 </head>
@@ -20,19 +21,18 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="Home.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="#" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="#" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
-                    <img src="image/user_icon.jpg" width="25px" alt="user_icon">
+                        <img src="image/user_icon.jpg" width="25" alt="user_icon">
+                    </label>
                     <input type="checkbox" id="toggle-options" class="toggle-options">
                     <div class="opciones">
-                        <button class="boton"> Logout </button>
-                        <button class="boton"> Settings </button>
+                        <button onclick="window.location.href='index.html'" class="boton"> Logout </button>
+                        <button onclick="window.location.href='Settings.html'" class="boton"> Settings </button>
                     </div>
-                    </div>
-
                 </nav>
             </div>
         </div>
@@ -51,35 +51,36 @@
                             <option value="AN">Los Àngeles</option>
                         </select>
                     </div>
-                        <p class="to">To</p>
-                        <div class="input-group">
+                    <p class="to">To</p>
+                    <div class="input-group">
                         <select class="inpC">
                             <option value="SC" disabled selected>Zarcero</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
                         </select>
                     </div>
-                <button class="btn"> Find Rides </button>
-                <div class="input-container">
-                    <p class="Days"> Days</p>
-                    <input type="checkbox" class="M">
-                    <p>Mon</p>
-                    <input type="checkbox" class="T">
-                    <p>Tue</p>
-                    <input type="checkbox" class="W">
-                    <p>Wed</p>
-                    <input type="checkbox" class="Th">
-                    <p>Thu</p>
-                    <input type="checkbox" class="F">
-                    <p>Fri</p>
-                    <input type="checkbox" class="S">
-                    <p>Sat</p>
-                    <input type="checkbox" class="Su">
-                    <p>Sun</p>
+                    <button class="btn"> Find Rides </button>
+                    <div class="input-container">
+                        <p class="Days"> Days</p>
+                        <input type="checkbox" class="M">
+                        <p>Mon</p>
+                        <input type="checkbox" class="T">
+                        <p>Tue</p>
+                        <input type="checkbox" class="W">
+                        <p>Wed</p>
+                        <input type="checkbox" class="Th">
+                        <p>Thu</p>
+                        <input type="checkbox" class="F">
+                        <p>Fri</p>
+                        <input type="checkbox" class="S">
+                        <p>Sat</p>
+                        <input type="checkbox" class="Su">
+                        <p>Sun</p>
+                    </div>
                 </div>
             </Fieldset>
             <p>Rides found from <span class="destacado"> Quesada </span> to <span class="destacado"> Zarcero </span></p>
-            <table class="table" style="width: 100%;">
+            <table class="table">
                 <tr>
                     <th class="th">Driver</th>
                     <th class="th">From</th>
@@ -90,7 +91,7 @@
                     <th class="th">Actions</th>
                 </tr>
                 <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="10%"> barroyo</td>
+                    <td class="td"><img src="image/user_icon.jpg" width="20" alt="im"> barroyo</td>
                     <td class="td"><a href="#" class="SC">Quesada</a></td>
                     <td class="td">Alajuela</td>
                     <td class="td">2</td>
@@ -99,7 +100,7 @@
                     <td class="td"><a href="#" class="Req">Request</a></td>
                 </tr>
                 <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="10%"> barroyo</td>
+                    <td class="td"><img src="image/user_icon.jpg" width="20" alt="im"> barroyo</td>
                     <td class="td"><a href="#" class="SC">Quesada</a></td>
                     <td class="td">Naranjo</td>
                     <td class="td">1</td>
@@ -108,7 +109,7 @@
                     <td class="td"><a href="#" class="Req">Request</a></td>
                 </tr>
                 <tr>
-                    <td class="td"><img src="image/user_icon.jpg" width="10%"> yluna</td>
+                    <td class="td"><img src="image/user_icon.jpg" width="20" alt="im"> yluna</td>
                     <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
                     <td class="td">Naranjo</td>
                     <td class="td">1</td>
@@ -133,10 +134,10 @@
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <a href="Home.html" class="link">Home |</a>&nbsp;&nbsp;
-                <a href="#" class="link">Rides |</a>&nbsp;&nbsp;
-                <a href="#" class="link">Bookings |</a>&nbsp;&nbsp;
-                <a href="#" class="link">Settings |</a>&nbsp;&nbsp;
+                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
                 <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                 <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
             </nav>

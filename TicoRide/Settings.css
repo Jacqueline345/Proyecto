@@ -37,6 +37,9 @@ body {
     max-width: 100%;
     height: auto;
 }
+.cont{
+    background-color: lightgray;
+}
 .user-icon {
     position: relative;
     cursor: pointer;
@@ -48,7 +51,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 28%;
     background-color: white;
     visibility: hidden;
     opacity: 0;
@@ -120,6 +123,11 @@ body {
 }
 .p1{
     color:lightgray;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 .footer {
     background-color: white;

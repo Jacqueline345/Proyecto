@@ -54,13 +54,16 @@ body {
     border: 0px;
 }
 .ride{
-    margin: 30%;
+    margin: 28%;
     margin-top: 10px;
 }
 .row{
     display: flex;
     justify-content: center;
     text-align: center;
+}
+.cont{
+    background-color: lightgray;
 }
 .user-icon {
     position: relative;
@@ -73,7 +76,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 27.7%;
     background-color: white;
     visibility: hidden;
     opacity: 0;

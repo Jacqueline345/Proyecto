@@ -68,6 +68,11 @@ body {
     border: 1px solid #ccc; 
     border-radius: 4px; 
 }
+.row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .register-wrapper {
     display: flex;
     align-items: center;

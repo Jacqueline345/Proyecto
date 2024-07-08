@@ -53,6 +53,9 @@ body {
     border-radius: 10px;
     border: 0px;
 }
+.cont{
+    background-color: lightgray;
+}
 .user-icon {
     position: relative;
     cursor: pointer;
@@ -64,7 +67,7 @@ body {
 
 .opciones {
     position: absolute;
-    right: 0;
+    right: 27.7%;
     background-color: white;
     visibility: hidden;
     opacity: 0;
@@ -93,7 +96,7 @@ body {
     background-color: gray;
 }
 .ride{
-    margin: 30%;
+    margin: 28%;
     margin-top: 10px;
 }
 .row{

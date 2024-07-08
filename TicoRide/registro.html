@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial scale="1.0">
+    <meta name="viewport" content="width=device-width">
     <title> Registro </title>
     <link rel="stylesheet" href="registro.css">
 </head>
@@ -20,49 +21,45 @@
         <div class="registro">
             <h1> User Registration </h1>
             <p class="line">____________</p>
-            <br></br>
             <div class="input-container">
                 <div class="input-group">
-                    <legend class="title">First Name</legend>
+                    <div class="title">First Name</div>
                     <input type="text" class="inpt-nombre">
                 </div>
                 <div class="input-group">
-                    <legend class="title">Last Name</legend>
+                    <div class="title">Last Name</div>
                     <input type="text" class="inpt-apellido">
                 </div>
             </div>
 
-            <legend class="id1"> Identification number </legend>
-            <input type="text" class="id">
-            <br></br>
-            <legend class="nac"> Birth date </legend>
-            <input type="datetime" class="inpNac">
-            <br></br>
-            <legend class="email"> Email </legend>
-            <input type="email" class="inpE">
+            <div class="id1"> Identification number </div>
+            <input type="text" class="id">&nbsp;
+
+            <div class="nac"> Birth date </div>
+            <input type="text" class="inpNac">&nbsp;
+
+            <div class="email"> Email </div>
+            <input type="text" class="inpE">&nbsp;
 
             <div class="input-container">
                 <div class="input-group">
-                    <br></br>
-                    <legend class="pass"> Password </legend>
+                    <div class="pass"> Password </div>
                     <input type="password" class="inpP">
                 </div>
                 <div class="input-group">
-                    <br></br>
-                    <legend class="pass"> Repeat Password </legend>
+                    <div class="pass"> Repeat Password </div>
                     <input type="password" class="inpP">
                 </div>
             </div>
 
-            <legend class="address"> Address </legend>
-            <input type="text" class="inpA">
+            <div class="address"> Address </div>
+            <input type="text" class="inpA">&nbsp;
 
             <div class="input-container">
                 <div class="input-group">
-                    <br></br>
-                    <legend class="country"> Country </legend>
+                    <div class="country"> Country </div>
                     <select class="inpC">
-                        <option value="v"> </option>
+                        <option value="v"> --- </option>
                         <option value="AF">Afghanistan</option>
                         <option value="AL">Albania</option>
                         <option value="DZ">Algeria</option>
@@ -70,24 +67,23 @@
                     </select>
                 </div>
                 <div class="input-group">
-                    <br></br>
-                    <legend class="country"> State </legend>
+                    <div class="country"> State </div>
                     <input type="text" class="inpC">
                 </div>
             </div>
             <div class="input-container">
                 <div class="input-group">
-                    <legend class="city"> City </legend>
-                    <input type="text" class="inpCi">
+                    <div class="city"> City </div>
+                    <input type="text" class="inpCi">&nbsp;
                 </div>
                 <div class="input-group">
-                    <legend class="city"> Phone number </legend>
-                    <input type="tel" class="inpCi">
+                    <div class="city"> Phone number </div>
+                    <input type="text" class="inpCi">&nbsp;
                 </div>
             </div>
             <div class="register-wrapper">
                 <p class="already-user">Already an user?</p>
-                <button onclick="window.location.href='index.html'" class="btn-info" id="loginBtn">Login here</button>
+                <button onclick="window.location.href='index.html'" class="btn-info">Login here</button>
 
                 <p class="register-driver"> Register as driver?</p>
                 <button onclick="window.location.href='registro_prov.html'" class="btn-info" id="registerBtn">Click
@@ -105,15 +101,12 @@
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-
-                <center>
-                    <a href="Home.html">Home |</a>&nbsp;&nbsp;
-                    <a href="#">Rides |</a>&nbsp;&nbsp;
-                    <a href="#">Bookings |</a>&nbsp;&nbsp;
-                    <a href="#">Settings |</a>&nbsp;&nbsp;
-                    <a href="index.html">Login |</a>&nbsp;&nbsp;
-                    <a href="registro.html">Register </a>&nbsp;&nbsp;
-                </center>
+                <a href="home2.html">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html">Bookings |</a>&nbsp;&nbsp;
+                <a href="Settings.html">Settings |</a>&nbsp;&nbsp;
+                <a href="index.html">Login |</a>&nbsp;&nbsp;
+                <a href="registro.html">Register </a>&nbsp;&nbsp;
             </nav>
         </div>
     </div>
