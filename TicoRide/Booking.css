@@ -10,12 +10,14 @@ body {
     justify-content: center;
     background-color: white;
     padding: 20px;
-    
+
 }
-.cont{
+
+.cont {
     background-color: lightgray;
     width: 100%;
 }
+
 .text {
     color: black;
     padding-left: 20px;
@@ -24,7 +26,8 @@ body {
 .text h1 {
     font-size: 2em;
 }
-.search-input{
+
+.search-input {
     border-radius: 5px;
     width: 20%;
     color: gray;
@@ -34,6 +37,7 @@ body {
     max-width: 100%;
     height: auto;
 }
+
 .nav-link {
     background-color: transparent;
     padding: 15px 25px;
@@ -48,6 +52,7 @@ body {
     background-color: blue;
     color: white;
 }
+
 .user-icon {
     position: relative;
     cursor: pointer;
@@ -66,7 +71,7 @@ body {
     transition: visibility 0s, opacity 0.5s ease;
 }
 
-.toggle-options:checked ~ .opciones {
+.toggle-options:checked~.opciones {
     visibility: visible;
     opacity: 1;
 }
@@ -76,7 +81,8 @@ body {
     margin-bottom: 0;
     cursor: pointer;
 }
-.boton{
+
+.boton {
     font-size: 12px;
     background-color: white;
     color: black;
@@ -84,42 +90,56 @@ body {
     width: 100%;
     padding: 12px 42px;
 }
-.boton:hover{
+
+.boton:hover {
     background-color: gray;
 }
-.informacion{
+
+.informacion {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     padding: 20px;
 }
-.informacion h1{
+
+.informacion h1 {
     color: gray;
     text-align: center;
     margin-bottom: 0;
 }
-.informacion p{
+
+.informacion p {
     text-align: center;
     color: lightgray;
     margin-top: 0;
 }
-.table, th, td{
+
+.table,
+th,
+td {
     border: 1px solid lightgray;
     border-collapse: collapse;
 }
-.table{
-    border: 1px solid lightgray; /* Borde para la tabla */
-    border-collapse: collapse; /* Colapsar los bordes de las celdas */
-    border-spacing: 100%; /* Espacio entre las celdas (puedes ajustarlo según tu diseño) */
+
+.table {
+    border: 1px solid lightgray;
+    /* Borde para la tabla */
+    border-collapse: collapse;
+    /* Colapsar los bordes de las celdas */
+    border-spacing: 100%;
+    /* Espacio entre las celdas (puedes ajustarlo según tu diseño) */
     width: 100%;
     margin-left: 1%;
 }
-.th, td{
+
+.th,
+td {
     padding: 10px;
     text-align: center;
 }
-.th{
+
+.th {
     background-color: lightgray;
     text-align: center;
 }
@@ -128,6 +148,7 @@ body {
     vertical-align: middle;
     margin-right: 5px;
 }
+
 .link {
     text-decoration: none;
     color: gray;
@@ -136,14 +157,17 @@ body {
 .link:hover {
     color: gray;
 }
-.row{
+
+.row {
     display: flex;
     justify-content: center;
     text-align: center;
 }
-.p1{
+
+.p1 {
     color: lightgray;
 }
+
 .footer {
     background-color: lightgray;
     color: gray;
