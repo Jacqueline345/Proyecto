@@ -142,6 +142,13 @@ a {
 a:hover {
     color: lightslategray;
 }
+.required {
+	color: red;
+}
+
+span.required {
+	padding: 5px;
+}
 .footer {
     background-color: white; 
     padding: 10px;

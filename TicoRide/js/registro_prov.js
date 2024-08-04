@@ -13,7 +13,11 @@ RIDES.initializeEvents = function() {
                 country: document.getElementById('country').value,
                 state: document.getElementById('state').value,
                 city: document.getElementById('city').value,
-                pnumber: document.getElementById('pnumber').value
+                pnumber: document.getElementById('pnumber').value,
+                marca: document.getElementById('marca').value,
+                modelo: document.getElementById('modelo').value,
+                año: document.getElementById('año').value,
+                licencia: document.getElementById('licencia').value
             }
             RIDES.addUser(user);
         });

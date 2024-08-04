@@ -24,80 +24,80 @@
             <div class="input-container">
                 <div class="input-group">
                     <div class="title">First Name</div>
-                    <input type="text" class="inpt-nombre">
+                    <input type="text" class="inpt-nombre" id="fname">
                 </div>
                 <div class="input-group">
                     <div class="title">Last Name</div>
-                    <input type="text" class="inpt-apellido">
+                    <input type="text" class="inpt-apellido" id="lname">
                 </div>
             </div>
             <div class="id1"> Identification number </div>
-            <input type="text" class="id">&nbsp;
+            <input type="text" class="id" id="numid">&nbsp;
 
             <div class="nac"> Birth date </div>
-            <input type="text" class="inpNac">&nbsp;
+            <input type="date" class="inpNac" id="bdate">&nbsp;
 
             <div class="email"> Email </div>
-            <input type="text" class="inpE">&nbsp;
+            <input type="email" class="inpE" id="email">&nbsp;
 
             <div class="input-container">
                 <div class="input-group">
                     <div class="pass"> Password </div>
-                    <input type="password" class="inpP">
+                    <input type="password" class="inpP" id="password">
                 </div>
                 <div class="input-group">
                     <div class="pass"> Repeat Password </div>
-                    <input type="password" class="inpP">
+                    <input type="password" class="inpP" id="rpassword">
                 </div>
             </div>
 
             <div class="address"> Address </div>
-            <input type="text" class="inpA">&nbsp;
+            <input type="text" class="inpA" id="address">&nbsp;
 
             <div class="input-container">
                 <div class="input-group">
                     <div class="country"> Country </div>
-                    <select class="inpC">
+                    <select class="inpC" id="country">
                         <option value="v"> --- </option>
                         <option value="AF">Afghanistan</option>
                         <option value="AL">Albania</option>
-                        <option value="DZ">Algeria</option>
-                        <option value="ZW">Zimbabwe</option>
+                        <option value="ALG">Algeria</option>
+                        <option value="CR">Costa Rica</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <div class="country"> State </div>
-                    <input type="text" class="inpC">
+                    <input type="text" class="inpC" id="state">
                 </div>
             </div>
             <div class="input-container">
                 <div class="input-group">
                     <div class="city"> City </div>
-                    <input type="text" class="inpCi">
+                    <input type="text" class="inpCi" id="city">
                 </div>
                 <div class="input-group">
                     <div class="city"> Phone number </div>
-                    <input type="text" class="inpCi">
+                    <input type="tel" class="inpCi" id="pnumber">
                 </div>
             </div>
             <div class="input-container">
                 <div class="input-group">
                     <div class="marca"> Brand of the vehicle </div>
-                    <input type="text" class="inpMa">
+                    <input type="text" class="inpMa" id="marca">
                 </div>
                 <div class="input-group">
                     <div class="modelo"> Model of the vehicle </div>
-                    <input type="text" class="inpMo">
+                    <input type="text" class="inpMo" id="modelo">
                 </div>
             </div>
             <div class="input-container">
                 <div class="input-group">
                     <div class="año"> Year of the vehicle </div>
-                    <input type="text" class="inpYe">
+                    <input type="text" class="inpYe" id="año">
                 </div>
                 <div class="input-group">
                     <div class="licencia"> License plate number </div>
-                    <input type="text" class="inpLi">
+                    <input type="text" class="inpLi" id="licencia">
                 </div>
             </div>
 
@@ -112,7 +112,8 @@
         </div>
     </section>
     <div class="sign">
-        <button onclick="window.location.href='index.html'" class="btn-sign" id="loginBtn">Sign Up</button>
+        <input type="button" class="btn-sign" value="Sign up" id="addUserButton" onclick="validateForm2()"></input>
+
     </div>
     <div class="container">
 
@@ -134,6 +135,9 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/validacion_reg.js"></script>
+    <script src="js/application2.js"></script>
+    <script src="js/registro_prov.js"></script>
 </body>
 
 </html>

@@ -2,32 +2,31 @@ var RIDES = {
     property: 20,
 
     initialize: function () {
-        RIDES.clearFields();
+        RIDES.clearFields2();
         RIDES.loadUsers();
     },
 
     initializeEvents: function () {
     },
-
     loadUsers: function () {
         var users = [];
         if (localStorage.getItem('users')) {
             users = JSON.parse(localStorage.getItem('users'));
         }
-        users.forEach(function (user,index, users) {
+        users.forEach(function (user, index, users) {
             RIDES.addUser(user);
         });
     },
     addUser: function (user) {
-            var users = [];
-            if (localStorage.getItem('users')) {
-                users = JSON.parse(localStorage.getItem('users'));
-            }
-            users.push(user);
-            localStorage.setItem('users', JSON.stringify(users));
-            RIDES.clearFields();
+        var users = [];
+        if (localStorage.getItem('users')) {
+            users = JSON.parse(localStorage.getItem('users'));
+        }
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+        RIDES.clearFields2();
     },
-    clearFields: function () {
+    clearFields2: function () {
         document.getElementById('fname').value = ' ';
         document.getElementById('lname').value = ' ';
         document.getElementById('numid').value = ' ';
@@ -40,5 +39,9 @@ var RIDES = {
         document.getElementById('state').value = ' ';
         document.getElementById('city').value = ' ';
         document.getElementById('pnumber').value = ' ';
+        document.getElementById('marca').value = ' ';
+        document.getElementById('modelo').value = ' ';
+        document.getElementById('año').value = ' ';
+        document.getElementById('licencia').value = ' ';
     }
 }

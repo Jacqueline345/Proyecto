@@ -24,17 +24,15 @@
                 <h1> Or </h1>
                 <fieldset class="box">
                     <div class="title"> Username </div>
-                    <input type="text" class="inp">
-                    <div class="password"> Password </div>
-                    <input type="password" class="inpt" placeholder="**********">
+                    <input type="text" class="inp" id="username">
+                    <div class="password"><span class="required">*</span> Password </div>
+                    <input type="password" class="inpt" id="password" placeholder="**********">
                     <div class="register-wrapper">
                         <p class="not-user">Not an user?</p>
-                        <button onclick="window.location.href='registro.html'" class="btn-info" id="loginBtn">Register
-                            Now</button>
-
+                        <button onclick="window.location.href='registro.html'" class="btn-info" id="loginBtn">Register Now</button>
                     </div>
                 </fieldset>
-                <button onclick="window.location.href='home2.html'" class="btn-login"> Login </button>
+                <button type="submit" class="btn-login">Login</button>
             </div>
         </section>
     </div>
@@ -58,6 +56,9 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/application.js"></script>
+    <script src="js/application2.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
