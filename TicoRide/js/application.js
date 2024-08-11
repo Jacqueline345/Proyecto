@@ -13,7 +13,7 @@ function clearFields() {
 	document.getElementById('city').value = ' ';
 	document.getElementById('pnumber').value = ' ';
 }
-function clearFields2 () {
+function clearFields2() {
 	document.getElementById('fname').value = ' ';
 	document.getElementById('lname').value = ' ';
 	document.getElementById('numid').value = ' ';
@@ -42,6 +42,8 @@ function validateUser() {
 		// localStorage.setItem('username', username);
 		errorElement.innerHTML = 'User is valid';
 		errorElement.setAttribute("style", "display:block;");
+		document.location.href = "./home2.html";
+
 	} else {
 		errorElement.innerHTML = 'Username or Password invalid';
 		errorElement.setAttribute("style", "display:block;");
@@ -49,68 +51,72 @@ function validateUser() {
 }
 
 
-function loadUser() {
-	// look for the username from the querystring
-	const urlParams = new URLSearchParams(window.location.search);
-	username = urlParams.get('u');
-	if (fname) {
-		//loop through the user's array
-		const users = getFromLocalStorage('users');
-		let matcheduser = '';
-		users.forEach((user) => {
-			//find the user that matches the username
-			if(user.fname === fname){
-				matcheduser = user;
-				return;
-			}
-		 });
+function loadRide() {
+    // Look for the username from the querystring
+    const urlParams = new URLSearchParams(window.location.search);
+    const dep = urlParams.get('u'); // Make sure 'dep' is initialized
+    if (dep) {
+        // Loop through the user's array
+        const rides = getFromLocalStorage('rides');
+        let matcheduser = null;
+        rides.forEach((ride) => {
+            // Find the user that matches the username
+            if (ride.dep === dep) {
+                matcheduser = ride;
+                return;
+            }
+        });
 
-		//fill the edit form with the user values
-		document.getElementById('fname').value = matcheduser.fname;
-		document.getElementById('lname').value = matcheduser.lname;
-		document.getElementById('password').value = matcheduser.password;
+        if (matcheduser) {
+            document.getElementById('dep').value = matcheduser.dep;
+            document.getElementById('arr').value = matcheduser.arr;
 
-	}
+            const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+            days.forEach(day => {
+                const checkbox = document.getElementById(day);
+                if (checkbox) {
+                    checkbox.checked = matcheduser.days && matcheduser.days[day] || false;
+                }
+            });
+
+            document.getElementById('time').value = matcheduser.time;
+            document.getElementById('se').value = matcheduser.se;
+            document.getElementById('fe').value = matcheduser.fe;
+            document.getElementById('make').value = matcheduser.make;
+            document.getElementById('model').value = matcheduser.model;
+            document.getElementById('anio').value = matcheduser.anio;
+        }
+    }
 }
 
-function loadUsers() {
-	// loop the users in localstorage
-	const users = getFromLocalStorage('users');
-	users.forEach((user,index) => {
-		// add each user to the the existing table
-		const table = document.getElementById("user-table-rows");
-		table.innerHTML +=  `<tr><th scope="row">${index}</th><td>${user.firstname}</td><td>${user.username}</td><td>${user.type}</td><td> <a href="./edit_user.html?u=${user.username}">Edit</a> | <a href="">Delete</a></td></tr>`
-	});
-
-}
 function saveUser() {
-			const fname = document.getElementById('fname').value;
-		    const lname = document.getElementById('lname').value;
-			const numid = document.getElementById('numid').value;
-			const bdate = document.getElementById('bdate').value;
-			const email = document.getElementById('email').value;
-			const password = document.getElementById('password').value;
-			const rpassword = document.getElementById('rpassword').value;
-			const address = document.getElementById('address').value;
-			const country = document.getElementById('country').value;
-			const state = document.getElementById('state').value;
-			const city = document.getElementById('city').value;
-			const pnumber = document.getElementById('pnumber').value;
-	
+	const fname = document.getElementById('fname').value;
+	const lname = document.getElementById('lname').value;
+	const numid = document.getElementById('numid').value;
+	const bdate = document.getElementById('bdate').value;
+	const email = document.getElementById('email').value;
+	const password = document.getElementById('password').value;
+	const rpassword = document.getElementById('rpassword').value;
+	const address = document.getElementById('address').value;
+	const country = document.getElementById('country').value;
+	const state = document.getElementById('state').value;
+	const city = document.getElementById('city').value;
+	const pnumber = document.getElementById('pnumber').value;
+
 
 	const user = {
 		fname,
-        lname,
-        numid,
-        bdate,
-        email,
-        password,
-        rpassword,
-        address,
-        country,
-        state,
-        city,
-        pnumber,
+		lname,
+		numid,
+		bdate,
+		email,
+		password,
+		rpassword,
+		address,
+		country,
+		state,
+		city,
+		pnumber,
 		"type": "user"
 	};
 
@@ -140,57 +146,118 @@ function saveUserProv() {
 	const año = document.getElementById('año').value;
 	const licencia = document.getElementById('licencia').value;
 
-const user = {
-fname,
-lname,
-numid,
-bdate,
-email,
-password,
-rpassword,
-address,
-country,
-state,
-city,
-pnumber,
-marca,
-modelo,
-año,
-licencia,
-"type": "user"
-};
+	const user = {
+		fname,
+		lname,
+		numid,
+		bdate,
+		email,
+		password,
+		rpassword,
+		address,
+		country,
+		state,
+		city,
+		pnumber,
+		marca,
+		modelo,
+		año,
+		licencia,
+		"type": "user"
+	};
 
-if (saveToLocalStorage('users', user)) {
-alert('User saved');
-document.location.href = "./index.html";
-} else {
-alert('There was an error registering the user');
+	if (saveToLocalStorage('users', user)) {
+		alert('User saved');
+		document.location.href = "./index.html";
+	} else {
+		alert('There was an error registering the user');
+	}
 }
+function saveRide() {
+	const dep = document.getElementById('dep').value;
+	const arr = document.getElementById('arr').value;
+	const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+	const selectedDays = {};
+
+	days.forEach(day => {
+		const checkbox = document.getElementById(day);
+		selectedDays[day] = checkbox.checked;
+	});
+
+	const time = document.getElementById('time').value;
+	const se = document.getElementById('se').value;
+	const fe = document.getElementById('fe').value;
+	const make = document.getElementById('make').value;
+	const model = document.getElementById('model').value;
+	const anio = document.getElementById('anio').value;
+
+	const Ride = {
+		dep,
+		arr,
+		days: selectedDays,
+		time,
+		se,
+		fe,
+		make,
+		model,
+		anio,
+		type: "Ride"
+	};
+
+	if (saveToLocalStorage('rides', Ride)) {
+		alert('Ride saved');
+		document.location.href = "./Ride.html";
+	} else {
+		alert('There was an error registering the ride');
+	}
 }
-function deleteUser(username) {
-	const users = getFromLocalStorage('users');
-	const updatedUsers = users.filter(user => user.username !== username);
 
-	saveToLocalStorage('users', updatedUsers);
+function loadRides() {
+	// Retrieve the rides from localStorage
+	const rides = getFromLocalStorage('rides');
 
-	alert('User deleted');
-	loadUser(); //recarga la tabla de usuarios
+	rides.forEach((Ride, index) => {
+		// Create a new row for each ride
+		const table = document.getElementById("user-table-rows");
+
+		table.innerHTML += `
+            <th scope="row">${index}</th>
+            <td>${Ride.dep}</td>
+            <td>${Ride.arr}</td>
+            <td>${Ride.se}</td>
+            <td>${Ride.make} ${Ride.model} ${Ride.anio}</td>
+            <td>${Ride.fe}</td>
+			<td> <a href="./edit_ride.html?u=${Ride.dep}">Edit</a> | <a href="#" class="deleteButton" data-dep="${Ride.dep}">Delete</a></td>`;
+	});
 }
 
 function editUser() {
-	const username = document.getElementById('username').value;
-	const firstname = document.getElementById('firstname').value;
-	const password = document.getElementById('password').value;
+	const dep = document.getElementById('dep').value;
+	const arr = document.getElementById('arr').value;
+	const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+	const selectedDays = {};
 
-	let users = JSON.parse(localStorage.getItem('users')) || [];
-	const existingUserIndex = users.findIndex(user => user.username === username);
+	days.forEach(day => {
+		const checkbox = document.getElementById(day);
+		selectedDays[day] = checkbox.checked;
+	});
+
+	const time = document.getElementById('time').value;
+	const se = document.getElementById('se').value;
+	const fe = document.getElementById('fe').value;
+	const make = document.getElementById('make').value;
+	const model = document.getElementById('model').value;
+	const anio = document.getElementById('anio').value;
+
+	let rides = JSON.parse(localStorage.getItem('rides')) || [];
+	const existingUserIndex = rides.findIndex(Ride => Ride.dep === dep);
 	if (existingUserIndex !== -1) {
-		users[existingUserIndex] = { username, firstname, password, "type": "user" };
-		localStorage.setItem('users', JSON.stringify(users));
-		alert('User updated');
-		document.location.href = "./dashboard.html";
+		rides[existingUserIndex] = { dep, arr, day, time, se, fe, make, model, anio, "type": "Ride" };
+		localStorage.setItem('rides', JSON.stringify(rides));
+		alert('Rides updated');
+		document.location.href = "./Ride.html";
 	} else {
-		alert('User not found');
+		alert('Ride not found');
 	}
 }
 
@@ -199,17 +266,25 @@ function editUser() {
  */
 function bindEvents() {
 	// document.getElementById('login-button').addEventListener('click', loginButtonHandler);
-	if(document.getElementById('addUserButton')) {
+	if (document.getElementById('addUserButton')) {
 		document.getElementById('addUserButton').addEventListener('click', addUserButtonHandler);
 	}
-	if(document.getElementById('RegisterButton')){
+	if (document.getElementById('RegisterButton')) {
 		document.getElementById('RegisterButton').addEventListener('click', RegisterButtonHandler);
 	}
-	if(document.getElementById('editarButton')) {
+	if (document.getElementById('editarButton')) {
 		document.getElementById('editarButton').addEventListener('click', editButtonHandler);
 	}
-	// jQuery('#login-button').bind('click', loginButtonHandler);
-	// jQuery('#register-button').bind('click', registerButtonHandler);
+	if (document.getElementById('loginButton')) {
+		document.getElementById('loginButton').addEventListener('click', loginButtonHandler);
+	}
+	if (document.getElementById('create')) {
+		document.getElementById('create').addEventListener('click', createHandler);
+	}
+	if (document.getElementById('deleteButton')) {
+		document.getElementById('deleteButton').addEventListener('click', deleteButtonHandler);
+	}
+
 }
 
 function loginButtonHandler(element) {
@@ -220,10 +295,16 @@ function addUserButtonHandler(element) {
 	saveUser();
 	clearFields();
 }
-function RegisterButtonHandler(element){
+function RegisterButtonHandler(element) {
 	saveUserProv();
 	clearFields2();
 }
-function editButtonHandler(element){
+function createHandler(element) {
+	saveRide();
+}
+function editButtonHandler(element) {
 	editUser();
+}
+function deleteButtonHandler(element) {
+	deleteRide();
 }

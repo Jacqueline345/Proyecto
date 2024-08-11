@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
     <link rel="stylesheet" href="index.css">
+
+    <script>
+        function showHidePassword() {
+            const passwordInputElement = document.getElementById('password');
+            const showPasswordButtonElement = document.getElementById('showPassword');
+            if (passwordInputElement.type === 'password') {
+                passwordInputElement.type = 'text';
+                showPasswordButtonElement.innerHTML = "Hide Password";
+            } else {
+                passwordInputElement.type = 'password';
+                showPasswordButtonElement.innerHTML = "Show Password";
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -23,16 +37,18 @@
                 <button class="btn1">Sign in with Google</button>
                 <h1> Or </h1>
                 <fieldset class="box">
+                    <div class="error_msg" id="error_msg"></div>
                     <div class="title"> Username </div>
-                    <input type="text" class="inp" id="username">
+                    <input type="text" class="inp" id="fname">
                     <div class="password"><span class="required">*</span> Password </div>
                     <input type="password" class="inpt" id="password" placeholder="**********">
                     <div class="register-wrapper">
                         <p class="not-user">Not an user?</p>
-                        <button onclick="window.location.href='registro.html'" class="btn-info" id="loginBtn">Register Now</button>
+                        <button onclick="window.location.href='registro.html'" class="btn-info" id="loginBtn">Register
+                            Now</button>
                     </div>
                 </fieldset>
-                <button type="submit" class="btn-login" id="loginButton">Login</button>
+                <input type="button" class="btn-login" value="Login" id="loginButton" />
             </div>
         </section>
     </div>
@@ -58,7 +74,9 @@
     </div>
     <script src="js/database.js"></script>
     <script src="js/application.js"></script>
-   
+    <script>
+        bindEvents();
+    </script>
 </body>
 
 </html>

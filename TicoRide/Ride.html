@@ -42,42 +42,50 @@
             <h1> My Rides </h1>
             <p>________________</p>
             <button onclick="window.location.href='New Ride.html'" class="button">New ride</button>
-            <table class="table">
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <th class="th">From</th>
-                    <th class="th">To</th>
-                    <th class="th">Seats</th>
-                    <th class="th">Car</th>
-                    <th class="th">Fee</th>
-                    <th class="th">Actions</th>
+                    <th class="th" scope="col">#</th>
+                    <th class="th" scope="col">From</th>
+                    <th class="th" scope="col">To</th>
+                    <th class="th" scope="col">Seats</th>
+                    <th class="th" scope="col">Car</th>
+                    <th class="th" scope="col">Fee</th>
+                    <th class="th" scope="col">Actions</th>
                 </tr>
-                <tr>
-                    <td class="td"><a href="#" class="SC">Quesada</a></td>
-                    <td class="td">Alajuela</td>
-                    <td class="td">2</td>
-                    <td class="td">Nissan Pathfinder 2015</td>
-                    <td class="td">$5</td>
-                    <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" class="Req">Delete</a></td>
-                </tr>
-                <tr>
-                    <td class="td"><a href="#" class="SC">Quesada</a></td>
-                    <td class="td">Naranjo</td>
-                    <td class="td">1</td>
-                    <td class="td">Toyota Corolla 2020</td>
-                    <td class="td">$10</td>
-                    <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" class="Req">Delete</a></td>
-                </tr>
-                <tr>
-                    <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
-                    <td class="td">Naranjo</td>
-                    <td class="td">1</td>
-                    <td class="td">Ford Festiva 1990</td>
-                    <td class="td">--</td>
-                    <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" class="Req">Delete</a></td>
-                </tr>
+            </thead>
+            <tr>
+                <td class="td"></td>
+                <td class="td"><a href="#" class="SC">Quesada</a></td>
+                <td class="td">Alajuela</td>
+                <td class="td">2</td>
+                <td class="td">Nissan Pathfinder 2015</td>
+                <td class="td">$5</td>
+                <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton" class="Req">Delete</a></td>
+            </tr>
+            <tr>
+                <td class="td"></td>
+                <td class="td"><a href="#" class="SC">Quesada</a></td>
+                <td class="td">Naranjo</td>
+                <td class="td">1</td>
+                <td class="td">Toyota Corolla 2020</td>
+                <td class="td">$10</td>
+                <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton" class="Req">Delete</a></td>
+            </tr>
+            <tr>
+                <td class="td"></td>
+                <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
+                <td class="td">Naranjo</td>
+                <td class="td">1</td>
+                <td class="td">Ford Festiva 1990</td>
+                <td class="td">--</td>
+                <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton" class="Req">Delete</a></td>
+            </tr>
+            </thead>
+            <tbody id="user-table-rows"></tbody>
             </table>
-        </div>
     </section>
+</div>
     <div class="container">
         <div class="row">
             <nav>
@@ -97,6 +105,12 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/database.js" type="text/javascript"></script>
+    <script src="js/application.js" type="text/javascript"></script>
+    <script>
+        bindEvents();
+        loadRides();
+      </script>
 </body>
 
 </html>

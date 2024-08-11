@@ -124,7 +124,6 @@ body {
     border: 1px solid black;
 }
 .table, th, td{
-    padding: 500%;
     border: 1px solid lightslategray;
     border-collapse: collapse;
 }

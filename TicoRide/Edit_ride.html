@@ -44,35 +44,35 @@
             <div class="input-container">
                 <div class="input-group">
                     <p class="dep"> Departure from </p>
-                    <input type="text" class="inp" placeholder="Quesada">
+                    <input type="text" class="inp" placeholder="Quesada" id="dep">
                 </div>
                 <div class="input-group">
                     <p class="arr"> Arrive To</p>
-                    <input type="text" class="inp" placeholder="Zarcero">
+                    <input type="text" class="inp" placeholder="Zarcero" id="arr">
                 </div>
             </div>
         </div>
             <p class="day"> Days </p>
             <div class="input-container">
-                <input type="checkbox" class="M">
+                <input type="checkbox" class="M" id="M">
                 <p>Mon</p>
-                <input type="checkbox" class="T">
+                <input type="checkbox" class="T" id="T">
                 <p>Tue</p>
-                <input type="checkbox" class="W">
+                <input type="checkbox" class="W" id="W">
                 <p>Wed</p>
-                <input type="checkbox" class="Th">
+                <input type="checkbox" class="Th" id="Th">
                 <p>Thu</p>
-                <input type="checkbox" class="F">
+                <input type="checkbox" class="F" id="F">
                 <p>Fri</p>
-                <input type="checkbox" class="S">
+                <input type="checkbox" class="S" id="S">
                 <p>Sat</p>
-                <input type="checkbox" class="Su">
+                <input type="checkbox" class="Su" id="Su">
                 <p>Sun</p>
             </div>
             <div class="input-container">
                 <div class="input-group">
                     <p class="time1"> Time </p>
-                    <select class="time">
+                    <select class="time" id="time">
                         <option value="SC" disabled selected>10:00 am</option>
                         <option value="LF">11:00 am</option>
                         <option value="AN">1:00 pm</option>
@@ -80,11 +80,11 @@
                 </div>
                 <div class="input-group">
                     <p class="sa">Seats</p>
-                    <input type="number" class="sea" value="2">
+                    <input type="number" class="sea" id="se" value="2">
                 </div>
                 <div class="input-group">
                     <p class="fe"> Fee </p>
-                    <input type="number" class="fee" value="15">
+                    <input type="number" class="fee" id="fe" value="15">
                 </div>
             </div>
             <div>
@@ -93,7 +93,7 @@
                     <div class="input-container">
                         <div class="input-group">
                             <p class="make"> Make </p>
-                            <select class="inpT">
+                            <select class="inpT" id="make">
                                 <option value="SC" disabled selected>Nissan</option>
                                 <option value="LF">Toyota</option>
                                 <option value="AN">Jeep</option>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="input-group">
                             <p class="models"> Model </p>
-                            <input type="text" class="model" placeholder="Pathfinder">
+                            <input type="text" class="model" placeholder="Pathfinder" id="model">
                         </div>
                         <div class="input-group">
                             <p class="years"> Year </p>
@@ -135,6 +135,13 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/database.js" type="text/javascript"></script>
+    <script src="js/application.js" type="text/javascript"></script>
+    <script>
+      bindEvents();
+      loadRide();
+    </script>
+
 </body>
 
 </html>
