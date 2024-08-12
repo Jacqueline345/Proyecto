@@ -33,60 +33,86 @@ function clearFields2() {
 }
 
 function validateUser() {
-	const fname = document.getElementById('fname').value;
-	const password = document.getElementById('password').value;
-	const errorElement = document.getElementById('error_msg');
+	// Obtener los valores del formulario
+	const fname = document.getElementById('fname').value; // Ajusta según el ID del input de nombre
+	const password = document.getElementById('password').value; // Ajusta según el ID del input de contraseña
 
-	if (fname == 'admin' && password == 'password') {
-		console.log('logged in');
-		// localStorage.setItem('username', username);
-		errorElement.innerHTML = 'User is valid';
-		errorElement.setAttribute("style", "display:block;");
-		document.location.href = "./home2.html";
+	if (fname && password) {
+		// Obtener los usuarios y conductores del localStorage
+		const users = JSON.parse(localStorage.getItem('users')) || [];
+		const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
 
+		let matchedUser = null;
+
+		// Buscar en los usuarios
+		for (const user of users) {
+			if (user.fname === fname && user.password === password) {
+				matchedUser = user;
+				break; // Salir del bucle una vez que se encuentra una coincidencia
+			}
+		}
+
+		// Buscar en los conductores solo si no se encontró una coincidencia en usuarios
+		if (!matchedUser) {
+			for (const driver of drivers) {
+				if (driver.fname === fname && driver.password === password) {
+					matchedUser = driver;
+					break; // Salir del bucle una vez que se encuentra una coincidencia
+				}
+			}
+		}
+
+		// Ahora puedes usar matchedUser según sea necesario
+		if (matchedUser) {
+			// Autenticación exitosa, proceder con el usuario autenticado
+			alert('User authenticated ');
+			window.location.href = './home2.html'; // Redirigir solo después de encontrar un usuario
+		} else {
+			// Autenticación fallida
+			alert('Invalid credentials');
+			// Mostrar mensaje de error al usuario, si lo deseas
+		}
 	} else {
-		errorElement.innerHTML = 'Username or Password invalid';
-		errorElement.setAttribute("style", "display:block;");
+		alert('Please enter both username and password');
 	}
 }
 
-
 function loadRide() {
-    // Look for the username from the querystring
-    const urlParams = new URLSearchParams(window.location.search);
-    const dep = urlParams.get('u'); // Make sure 'dep' is initialized
-    if (dep) {
-        // Loop through the user's array
-        const rides = getFromLocalStorage('rides');
-        let matcheduser = null;
-        rides.forEach((ride) => {
-            // Find the user that matches the username
-            if (ride.dep === dep) {
-                matcheduser = ride;
-                return;
-            }
-        });
+	// Look for the username from the querystring
+	const urlParams = new URLSearchParams(window.location.search);
+	const dep = urlParams.get('u'); // Make sure 'dep' is initialized
+	if (dep) {
+		// Loop through the user's array
+		const rides = getFromLocalStorage('rides');
+		let matcheduser = null;
+		rides.forEach((ride) => {
+			// Find the user that matches the username
+			if (ride.dep === dep) {
+				matcheduser = ride;
+				return;
+			}
+		});
 
-        if (matcheduser) {
-            document.getElementById('dep').value = matcheduser.dep;
-            document.getElementById('arr').value = matcheduser.arr;
+		if (matcheduser) {
+			document.getElementById('dep').value = matcheduser.dep;
+			document.getElementById('arr').value = matcheduser.arr;
 
-            const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
-            days.forEach(day => {
-                const checkbox = document.getElementById(day);
-                if (checkbox) {
-                    checkbox.checked = matcheduser.days && matcheduser.days[day] || false;
-                }
-            });
+			const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+			days.forEach(day => {
+				const checkbox = document.getElementById(day);
+				if (checkbox) {
+					checkbox.checked = matcheduser.days && matcheduser.days[day] || false;
+				}
+			});
 
-            document.getElementById('time').value = matcheduser.time;
-            document.getElementById('se').value = matcheduser.se;
-            document.getElementById('fe').value = matcheduser.fe;
-            document.getElementById('make').value = matcheduser.make;
-            document.getElementById('model').value = matcheduser.model;
-            document.getElementById('anio').value = matcheduser.anio;
-        }
-    }
+			document.getElementById('time').value = matcheduser.time;
+			document.getElementById('se').value = matcheduser.se;
+			document.getElementById('fe').value = matcheduser.fe;
+			document.getElementById('make').value = matcheduser.make;
+			document.getElementById('model').value = matcheduser.model;
+			document.getElementById('anio').value = matcheduser.anio;
+		}
+	}
 }
 
 function saveUser() {
@@ -146,7 +172,7 @@ function saveUserProv() {
 	const año = document.getElementById('año').value;
 	const licencia = document.getElementById('licencia').value;
 
-	const user = {
+	const driver = {
 		fname,
 		lname,
 		numid,
@@ -163,10 +189,10 @@ function saveUserProv() {
 		modelo,
 		año,
 		licencia,
-		"type": "user"
+		"type": "driver"
 	};
 
-	if (saveToLocalStorage('users', user)) {
+	if (savedToLocalStorage('drivers', driver)) {
 		alert('User saved');
 		document.location.href = "./index.html";
 	} else {
@@ -204,7 +230,7 @@ function saveRide() {
 		type: "Ride"
 	};
 
-	if (saveToLocalStorage('rides', Ride)) {
+	if (saveRToLocalStorage('rides', Ride)) {
 		alert('Ride saved');
 		document.location.href = "./Ride.html";
 	} else {
@@ -230,7 +256,7 @@ function loadRides() {
 			<td> <a href="./edit_ride.html?u=${Ride.dep}">Edit</a> | <a href="#" id="deleteButton" data-dep="${Ride.dep}">Delete</a></td>`;
 	});
 }
-function editUser(){
+function editUser() {
 	const fname = document.getElementById('fname').value;
 	const lname = document.getElementById('lname').value;
 	const numid = document.getElementById('numid').value;
@@ -256,7 +282,7 @@ function editUser(){
 	}
 
 }
-function editDrive(){
+function editDrive() {
 	const fname = document.getElementById('fname').value;
 	const lname = document.getElementById('lname').value;
 	const numid = document.getElementById('numid').value;
@@ -269,7 +295,7 @@ function editDrive(){
 	const state = document.getElementById('state').value;
 	const city = document.getElementById('city').value;
 	const pnumber = document.getElementById('pnumber').value;
-    const marca = document.getElementById('marca').value;
+	const marca = document.getElementById('marca').value;
 	const modelo = document.getElementById('model').value;
 	const año = document.getElementById('año').value;
 	const licencia = document.getElementById('licencia').value;
@@ -316,13 +342,144 @@ function editRide() {
 	}
 }
 function Delete() {
-    const rides = document.querySelector('rides');
+	const rides = document.querySelector('rides');
 	const updatedRides = rides.filter(Ride => rides.arr !== arr);
 
-	saveToLocalStorage('rides', updatedRides);
+	saveRToLocalStorage('rides', updatedRides);
 
 	alert('Rides deleted');
 	loadRides(); //recarga la tabla de usuarios
+}
+localStorage.setItem('currentUserFname', user.fname);
+
+function loadUserProfile() {
+    const fname = localStorage.getItem('currentUserFname', user.fname); // Obtener el fname del localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+    
+    let user = null;
+    let driver = null;
+    
+    // Buscar el usuario en los usuarios
+    user = users.find(u => u.fname === fname);
+    
+    // Buscar el conductor en los conductores si no se encontró un usuario
+    if (!user) {
+        driver = drivers.find(d => d.fname === fname);
+    }
+    
+    // Rellenar el formulario con los datos del usuario
+    if (user) {
+        document.getElementById('fname').value = user.fname;
+        document.getElementById('lname').value = user.lname;
+        document.getElementById('numid').value = user.numid;
+        document.getElementById('bdate').value = user.bdate;
+        document.getElementById('email').value = user.email;
+        document.getElementById('password').value = user.password;
+        document.getElementById('rpassword').value = user.rpassword;
+        document.getElementById('address').value = user.address;
+        document.getElementById('country').value = user.country;
+        document.getElementById('state').value = user.state;
+        document.getElementById('city').value = user.city;
+        document.getElementById('pnumber').value = user.pnumber;
+
+    } else if (driver) {
+        document.getElementById('fname').value = driver.fname;
+        document.getElementById('lname').value = driver.lname;
+        document.getElementById('numid').value = driver.numid;
+        document.getElementById('bdate').value = driver.bdate;
+        document.getElementById('email').value = driver.email;
+        document.getElementById('password').value = driver.password;
+        document.getElementById('rpassword').value = driver.rpassword;
+        document.getElementById('address').value = driver.address;
+        document.getElementById('country').value = driver.country;
+        document.getElementById('state').value = driver.state;
+        document.getElementById('city').value = driver.city;
+        document.getElementById('pnumber').value = driver.pnumber;
+        document.getElementById('marca').value = driver.marca;
+        document.getElementById('model').value = driver.modelo;
+        document.getElementById('año').value = driver.año;
+        document.getElementById('licencia').value = driver.licencia;
+    }
+}
+
+// Llama a la función cuando la página se carga
+window.onload = loadUserProfile();
+
+function saveUserProfile() {
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const numid = document.getElementById('numid').value;
+    const bdate = document.getElementById('bdate').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const rpassword = document.getElementById('rpassword').value;
+    const address = document.getElementById('address').value;
+    const country = document.getElementById('country').value;
+    const state = document.getElementById('state').value;
+    const city = document.getElementById('city').value;
+    const pnumber = document.getElementById('pnumber').value;
+    const marca = document.getElementById('marca')?.value;
+    const modelo = document.getElementById('model')?.value;
+    const año = document.getElementById('año')?.value;
+    const licencia = document.getElementById('licencia')?.value;
+    const currentFname = localStorage.getItem('currentUserFname'); // Obtener el fname actual
+    
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+    
+    // Actualizar el usuario en la lista de usuarios
+    let updated = false;
+    for (let user of users) {
+        if (user.fname === currentFname) {
+            user.fname = fname;
+            user.lname = lname;
+            user.numid = numid;
+            user.bdate = bdate;
+            user.email = email;
+            user.password = password;
+            user.rpassword = rpassword;
+            user.address = address;
+            user.country = country;
+            user.state = state;
+            user.city = city;
+            user.pnumber = pnumber;
+            updated = true;
+            break;
+        }
+    }
+    
+    // Actualizar el conductor en la lista de conductores si no estaba en usuarios
+    if (!updated) {
+        for (let driver of drivers) {
+            if (driver.fname === currentFname) {
+                driver.fname = fname;
+                driver.lname = lname;
+                driver.numid = numid;
+                driver.bdate = bdate;
+                driver.email = email;
+                driver.password = password;
+                driver.rpassword = rpassword;
+                driver.address = address;
+                driver.country = country;
+                driver.state = state;
+                driver.city = city;
+                driver.pnumber = pnumber;
+                driver.marca = marca;
+                driver.modelo = modelo;
+                driver.año = año;
+                driver.licencia = licencia;
+                break;
+            }
+        }
+    }
+    
+    // Guardar los datos actualizados en el localStorage
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('drivers', JSON.stringify(drivers));
+    
+    // Confirmar los cambios y redirigir si es necesario
+    console.log('Profile updated successfully');
 }
 
 /**
@@ -348,13 +505,6 @@ function bindEvents() {
 	if (document.getElementById('deleteButton')) {
 		document.getElementById('deleteButton').addEventListener('click', deleteButtonHandler);
 	}
-	if (document.getElementById('editarButton')) {
-		document.getElementById('editarButton').addEventListener('click', editarButtonHandler);
-	}
-	if (document.getElementById('editarDriveButton')) {
-		document.getElementById('editarDriveButton').addEventListener('click', editarDriveButtonHandler);
-	}
-
 }
 
 function loginButtonHandler(element) {
@@ -377,10 +527,4 @@ function editButtonHandler(element) {
 }
 function deleteButtonHandler(element) {
 	Delete();
-}
-function editarButtonHandler(element){
-	editUser();
-}
-function editarDriveButtonHandler(element){
-	editDrive();
 }
