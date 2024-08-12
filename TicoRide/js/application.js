@@ -227,11 +227,66 @@ function loadRides() {
             <td>${Ride.se}</td>
             <td>${Ride.make} ${Ride.model} ${Ride.anio}</td>
             <td>${Ride.fe}</td>
-			<td> <a href="./edit_ride.html?u=${Ride.dep}">Edit</a> | <a href="#" class="deleteButton" data-dep="${Ride.dep}">Delete</a></td>`;
+			<td> <a href="./edit_ride.html?u=${Ride.dep}">Edit</a> | <a href="#" id="deleteButton" data-dep="${Ride.dep}">Delete</a></td>`;
 	});
 }
+function editUser(){
+	const fname = document.getElementById('fname').value;
+	const lname = document.getElementById('lname').value;
+	const numid = document.getElementById('numid').value;
+	const bdate = document.getElementById('bdate').value;
+	const email = document.getElementById('email').value;
+	const password = document.getElementById('password').value;
+	const rpassword = document.getElementById('rpassword').value;
+	const address = document.getElementById('address').value;
+	const country = document.getElementById('country').value;
+	const state = document.getElementById('state').value;
+	const city = document.getElementById('city').value;
+	const pnumber = document.getElementById('pnumber').value;
 
-function editUser() {
+	let users = JSON.parse(localStorage.getItem('users')) || [];
+	const existingUserIndex = users.findIndex(user => user.fname === fname);
+	if (existingUserIndex !== -1) {
+		users[existingUserIndex] = { fname, lname, numid, bdate, email, password, rpassword, address, country, state, city, pnumber, "type": "user" };
+		localStorage.setItem('users', JSON.stringify(users));
+		alert('User updated');
+		document.location.href = "./index.html";
+	} else {
+		alert('User not found');
+	}
+
+}
+function editDrive(){
+	const fname = document.getElementById('fname').value;
+	const lname = document.getElementById('lname').value;
+	const numid = document.getElementById('numid').value;
+	const bdate = document.getElementById('bdate').value;
+	const email = document.getElementById('email').value;
+	const password = document.getElementById('password').value;
+	const rpassword = document.getElementById('rpassword').value;
+	const address = document.getElementById('address').value;
+	const country = document.getElementById('country').value;
+	const state = document.getElementById('state').value;
+	const city = document.getElementById('city').value;
+	const pnumber = document.getElementById('pnumber').value;
+    const marca = document.getElementById('marca').value;
+	const modelo = document.getElementById('model').value;
+	const año = document.getElementById('año').value;
+	const licencia = document.getElementById('licencia').value;
+
+	let users = JSON.parse(localStorage.getItem('users')) || [];
+	const existingUserIndex = users.findIndex(user => user.fname === fname);
+	if (existingUserIndex !== -1) {
+		users[existingUserIndex] = { fname, lname, numid, bdate, email, password, rpassword, address, country, state, city, pnumber, marca, modelo, año, licencia, "type": "user" };
+		localStorage.setItem('users', JSON.stringify(users));
+		alert('User updated');
+		document.location.href = "./index.html";
+	} else {
+		alert('User not found');
+	}
+
+}
+function editRide() {
 	const dep = document.getElementById('dep').value;
 	const arr = document.getElementById('arr').value;
 	const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
@@ -250,15 +305,24 @@ function editUser() {
 	const anio = document.getElementById('anio').value;
 
 	let rides = JSON.parse(localStorage.getItem('rides')) || [];
-	const existingUserIndex = rides.findIndex(Ride => Ride.dep === dep);
-	if (existingUserIndex !== -1) {
-		rides[existingUserIndex] = { dep, arr, day, time, se, fe, make, model, anio, "type": "Ride" };
+	const existingRideIndex = rides.findIndex(ride => ride.dep === dep && ride.arr === arr);
+	if (existingRideIndex !== -1) {
+		rides[existingRideIndex] = { dep, arr, selectedDays, time, se, fe, make, model, anio, "type": "Ride" };
 		localStorage.setItem('rides', JSON.stringify(rides));
-		alert('Rides updated');
+		alert('Ride updated');
 		document.location.href = "./Ride.html";
 	} else {
 		alert('Ride not found');
 	}
+}
+function Delete() {
+    const rides = document.querySelector('rides');
+	const updatedRides = rides.filter(Ride => rides.arr !== arr);
+
+	saveToLocalStorage('rides', updatedRides);
+
+	alert('Rides deleted');
+	loadRides(); //recarga la tabla de usuarios
 }
 
 /**
@@ -272,8 +336,8 @@ function bindEvents() {
 	if (document.getElementById('RegisterButton')) {
 		document.getElementById('RegisterButton').addEventListener('click', RegisterButtonHandler);
 	}
-	if (document.getElementById('editarButton')) {
-		document.getElementById('editarButton').addEventListener('click', editButtonHandler);
+	if (document.getElementById('editButton')) {
+		document.getElementById('editButton').addEventListener('click', editButtonHandler);
 	}
 	if (document.getElementById('loginButton')) {
 		document.getElementById('loginButton').addEventListener('click', loginButtonHandler);
@@ -283,6 +347,12 @@ function bindEvents() {
 	}
 	if (document.getElementById('deleteButton')) {
 		document.getElementById('deleteButton').addEventListener('click', deleteButtonHandler);
+	}
+	if (document.getElementById('editarButton')) {
+		document.getElementById('editarButton').addEventListener('click', editarButtonHandler);
+	}
+	if (document.getElementById('editarDriveButton')) {
+		document.getElementById('editarDriveButton').addEventListener('click', editarDriveButtonHandler);
 	}
 
 }
@@ -303,8 +373,14 @@ function createHandler(element) {
 	saveRide();
 }
 function editButtonHandler(element) {
-	editUser();
+	editRide();
 }
 function deleteButtonHandler(element) {
-	deleteRide();
+	Delete();
+}
+function editarButtonHandler(element){
+	editUser();
+}
+function editarDriveButtonHandler(element){
+	editDrive();
 }
