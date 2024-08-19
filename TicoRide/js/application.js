@@ -205,9 +205,10 @@ function saveRide() {
 	const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
 	const selectedDays = {};
 
+	// Recopilar los días seleccionados
 	days.forEach(day => {
 		const checkbox = document.getElementById(day);
-		selectedDays[day] = checkbox.checked;
+		selectedDays[day] = checkbox ? checkbox.checked : false; // Asegurarse de que el checkbox exista
 	});
 
 	const time = document.getElementById('time').value;
@@ -216,8 +217,8 @@ function saveRide() {
 	const make = document.getElementById('make').value;
 	const model = document.getElementById('model').value;
 	const anio = document.getElementById('anio').value;
-
-	const Ride = {
+	// Crear el objeto de ride
+	const ride = {
 		dep,
 		arr,
 		days: selectedDays,
@@ -230,13 +231,27 @@ function saveRide() {
 		type: "Ride"
 	};
 
-	if (saveRToLocalStorage('rides', Ride)) {
+	// Función para guardar en localStorage
+	function saveToLocalStorage(key, value) {
+		try {
+			let existingData = JSON.parse(localStorage.getItem(key)) || [];
+			existingData.push(value);
+			localStorage.setItem(key, JSON.stringify(existingData));
+			return true;
+		} catch (error) {
+			console.error('Error saving data to localStorage:', error);
+			return false;
+		}
+	}
+
+	if (saveToLocalStorage('rides', ride)) {
 		alert('Ride saved');
 		document.location.href = "./Ride.html";
 	} else {
 		alert('There was an error registering the ride');
 	}
 }
+
 
 function loadRides() {
 	// Retrieve the rides from localStorage
@@ -296,15 +311,15 @@ function editDrive() {
 	const city = document.getElementById('city').value;
 	const pnumber = document.getElementById('pnumber').value;
 	const marca = document.getElementById('marca').value;
-	const modelo = document.getElementById('model').value;
+	const modelo = document.getElementById('modelo').value;
 	const año = document.getElementById('año').value;
 	const licencia = document.getElementById('licencia').value;
 
-	let users = JSON.parse(localStorage.getItem('users')) || [];
-	const existingUserIndex = users.findIndex(user => user.fname === fname);
-	if (existingUserIndex !== -1) {
-		users[existingUserIndex] = { fname, lname, numid, bdate, email, password, rpassword, address, country, state, city, pnumber, marca, modelo, año, licencia, "type": "user" };
-		localStorage.setItem('users', JSON.stringify(users));
+	let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+	const existingDriverIndex = drivers.findIndex(driver => driver.fname === fname);
+	if (existingDriverIndex !== -1) {
+		drivers[existingDriverIndex] = { fname, lname, numid, bdate, email, password, rpassword, address, country, state, city, pnumber, marca, modelo, año, licencia, "type": "driver" };
+		localStorage.setItem('drivers', JSON.stringify(drivers));
 		alert('User updated');
 		document.location.href = "./index.html";
 	} else {
@@ -342,146 +357,104 @@ function editRide() {
 	}
 }
 function Delete() {
-	const rides = document.querySelector('rides');
-	const updatedRides = rides.filter(Ride => rides.arr !== arr);
+	// Selecciona todos los botones de eliminar
+	document.querySelectorAll('.deleteButton').forEach(button => {
+		button.addEventListener('click', function () {
+			// Obtiene el ride id desde la fila de la tabla
+			const rideId = this.closest('tr').getAttribute('data-ride-id');
 
-	saveRToLocalStorage('rides', updatedRides);
+			// Muestra un cuadro de confirmación
+			if (confirm('¿Estás seguro de que quieres eliminar este ride?')) {
+				// Elimina el ride del localStorage
+				let rides = JSON.parse(localStorage.getItem('rides')) || [];
+				rides = rides.filter(ride => ride.id !== rideId);
+				localStorage.setItem('rides', JSON.stringify(rides));
 
-	alert('Rides deleted');
-	loadRides(); //recarga la tabla de usuarios
+				// Elimina la fila de la tabla
+				this.closest('tr').remove();
+			}
+		});
+	});
+
 }
-localStorage.setItem('currentUserFname', user.fname);
+function loginUser() {
+		const fname = document.getElementById('fname').value;
+		const password = document.getElementById('password').value;
+	
+		let users = JSON.parse(localStorage.getItem('users')) || [];
+		const user = users.find(user => user.fname === fname && user.password === password);
+		localStorage.setItem('loggedInUser', JSON.stringify(user)); // Guarda el usuario en localStorage
 
-function loadUserProfile() {
-    const fname = localStorage.getItem('currentUserFname', user.fname); // Obtener el fname del localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
-    
-    let user = null;
-    let driver = null;
-    
-    // Buscar el usuario en los usuarios
-    user = users.find(u => u.fname === fname);
-    
-    // Buscar el conductor en los conductores si no se encontró un usuario
-    if (!user) {
-        driver = drivers.find(d => d.fname === fname);
-    }
-    
-    // Rellenar el formulario con los datos del usuario
-    if (user) {
-        document.getElementById('fname').value = user.fname;
-        document.getElementById('lname').value = user.lname;
-        document.getElementById('numid').value = user.numid;
-        document.getElementById('bdate').value = user.bdate;
-        document.getElementById('email').value = user.email;
-        document.getElementById('password').value = user.password;
-        document.getElementById('rpassword').value = user.rpassword;
-        document.getElementById('address').value = user.address;
-        document.getElementById('country').value = user.country;
-        document.getElementById('state').value = user.state;
-        document.getElementById('city').value = user.city;
-        document.getElementById('pnumber').value = user.pnumber;
+	
+		if (user) {
+			if (user.type === 'user') {
+				alert('Usuario encontrado correctamente');
+			} else {
+				alert('Usuario no encontrado');
+			}
+		} 
+	} 
+	function loginDriver() {
+		const fname = document.getElementById('fname').value;
+		const password = document.getElementById('password').value;
+	
+		let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+		const driver = drivers.find(driver => driver.fname === fname && driver.password === password);
+		localStorage.setItem('loggedInDriver', JSON.stringify(driver)); // Guarda el usuario en localStorage
 
-    } else if (driver) {
-        document.getElementById('fname').value = driver.fname;
-        document.getElementById('lname').value = driver.lname;
-        document.getElementById('numid').value = driver.numid;
-        document.getElementById('bdate').value = driver.bdate;
-        document.getElementById('email').value = driver.email;
-        document.getElementById('password').value = driver.password;
-        document.getElementById('rpassword').value = driver.rpassword;
-        document.getElementById('address').value = driver.address;
-        document.getElementById('country').value = driver.country;
-        document.getElementById('state').value = driver.state;
-        document.getElementById('city').value = driver.city;
-        document.getElementById('pnumber').value = driver.pnumber;
-        document.getElementById('marca').value = driver.marca;
-        document.getElementById('model').value = driver.modelo;
-        document.getElementById('año').value = driver.año;
-        document.getElementById('licencia').value = driver.licencia;
-    }
+	
+		if (driver) {
+			if (user.type === 'driver') {
+				alert('Driver encontrado correctamente');
+			} else {
+				alert('Driver no encontrado');
+			}
+		} 
+	} 
+function saveRideData(){
+	    const loggedInDriver = JSON.parse(localStorage.getItem('loggedInDriver'));
+        const rides = JSON.parse(localStorage.getItem('rides'));
+        const rideData = {
+            driver: loggedInDriver,
+            rides: rides
+        };
+	if (saveRiToLocalStorage('rideData', rideData)) {
+		alert('Ride guardados correctamente');
+		document.location.href = "./Ride.html";
+	} else {
+		alert('There was an error registering the user');
+	}
 }
-
-// Llama a la función cuando la página se carga
-window.onload = loadUserProfile();
-
-function saveUserProfile() {
-    const fname = document.getElementById('fname').value;
-    const lname = document.getElementById('lname').value;
-    const numid = document.getElementById('numid').value;
-    const bdate = document.getElementById('bdate').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const rpassword = document.getElementById('rpassword').value;
-    const address = document.getElementById('address').value;
-    const country = document.getElementById('country').value;
-    const state = document.getElementById('state').value;
-    const city = document.getElementById('city').value;
-    const pnumber = document.getElementById('pnumber').value;
-    const marca = document.getElementById('marca')?.value;
-    const modelo = document.getElementById('model')?.value;
-    const año = document.getElementById('año')?.value;
-    const licencia = document.getElementById('licencia')?.value;
-    const currentFname = localStorage.getItem('currentUserFname'); // Obtener el fname actual
-    
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
-    
-    // Actualizar el usuario en la lista de usuarios
-    let updated = false;
-    for (let user of users) {
-        if (user.fname === currentFname) {
-            user.fname = fname;
-            user.lname = lname;
-            user.numid = numid;
-            user.bdate = bdate;
-            user.email = email;
-            user.password = password;
-            user.rpassword = rpassword;
-            user.address = address;
-            user.country = country;
-            user.state = state;
-            user.city = city;
-            user.pnumber = pnumber;
-            updated = true;
-            break;
-        }
-    }
-    
-    // Actualizar el conductor en la lista de conductores si no estaba en usuarios
-    if (!updated) {
-        for (let driver of drivers) {
-            if (driver.fname === currentFname) {
-                driver.fname = fname;
-                driver.lname = lname;
-                driver.numid = numid;
-                driver.bdate = bdate;
-                driver.email = email;
-                driver.password = password;
-                driver.rpassword = rpassword;
-                driver.address = address;
-                driver.country = country;
-                driver.state = state;
-                driver.city = city;
-                driver.pnumber = pnumber;
-                driver.marca = marca;
-                driver.modelo = modelo;
-                driver.año = año;
-                driver.licencia = licencia;
-                break;
-            }
-        }
-    }
-    
-    // Guardar los datos actualizados en el localStorage
-    localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('drivers', JSON.stringify(drivers));
-    
-    // Confirmar los cambios y redirigir si es necesario
-    console.log('Profile updated successfully');
-}
-
+function searchRides() {
+	// Obtener los valores del formulario
+	const dep = document.getElementById('dep').value.toLowerCase();
+	const arr = document.getElementById('arr').value.toLowerCase();
+  
+	// Obtener los datos de localStorage
+	const rideData = JSON.parse(localStorage.getItem('rideData')) || { driver: null, rides: [] };
+	const rides = rideData.rides || [];
+  
+	// Filtrar los rides
+	const filteredRides = rides.filter(ride => {
+	  return ride.dep.toLowerCase().includes(dep) && ride.arr.toLowerCase().includes(arr) && ride.days.toLowerCase().includes(days);
+	});
+  
+	// Mostrar los resultados en la tabla
+	const tableBody = document.getElementById('ridetable').getElementsByTagName('tbody')[0];
+	tableBody.innerHTML = ''; // Limpiar resultados anteriores
+  
+	filteredRides.forEach(ride => {
+	  const row = tableBody.insertRow();
+	  const driver = row.insertCell(0);
+	  const dep= row.insertCell(1);
+	  const arr = row.insertCell(2);
+  
+	  driver.textContent = ride.driver;
+	  dep.textContent = ride.dep;
+	  locationCell.textContent = ride.arr;
+	});
+  }
+  
 /**
  * Binds the different events to the different elements of the page
  */
@@ -505,10 +478,23 @@ function bindEvents() {
 	if (document.getElementById('deleteButton')) {
 		document.getElementById('deleteButton').addEventListener('click', deleteButtonHandler);
 	}
+	if (document.getElementById('editarButton')) {
+		document.getElementById('editarButton').addEventListener('click', editarButtonHandler);
+	}
+	if (document.getElementById('editarDriveButton')) {
+		document.getElementById('editarDriveButton').addEventListener('click', editarDriveButtonHandler);
+	}
+	if (document.getElementById('buscar')) {
+		document.getElementById('buscar').addEventListener('click', BuscarHandler);
+	}
+
+
 }
 
 function loginButtonHandler(element) {
 	validateUser();
+	loginUser();
+	loginDriver();
 }
 
 function addUserButtonHandler(element) {
@@ -521,10 +507,20 @@ function RegisterButtonHandler(element) {
 }
 function createHandler(element) {
 	saveRide();
+	saveRideData();
 }
 function editButtonHandler(element) {
 	editRide();
 }
 function deleteButtonHandler(element) {
 	Delete();
+}
+function editarButtonHandler(element){
+	editUser();
+}
+function editarDriveButtonHandler(element){
+	editDrive();
+}
+function BuscarHandler(element){
+	searchRides();
 }

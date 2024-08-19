@@ -45,23 +45,29 @@
                 <div class="input-container">
                     <p class="from">From</p>
                     <div class="input-group">
-                        <select class="inpC">
-                            <option value="SC" disabled selected>Quesada</option>
+                        <select class="inpC" id="dep">
+                            <option value="SC"> Ciudad Quesada</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
+                            <option value="AG"> Aguas Zarcas </option>
+                            <option value="MR"> La marina</option>
+                            <option value="Zc"> Zarcero</option>
                         </select>
                     </div>
                     <p class="to">To</p>
                     <div class="input-group">
-                        <select class="inpC">
-                            <option value="SC" disabled selected>Zarcero</option>
+                        <select class="inpC" id="arr">
+                            <option value="Zc"> Zarcero</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
+                            <option value="SC"> Ciudad Quesada</option>
+                            <option value="AG"> Aguas Zarcas </option>
+                            <option value="MR"> La marina</option>
                         </select>
                     </div>
-                    <button class="btn"> Find Rides </button>
+                    <button class="btn" id="buscar"> Find Rides </button>
                     <div class="input-container">
-                        <p class="Days"> Days</p>
+                        <p class="Days" id="days"> Days</p>
                         <input type="checkbox" class="M">
                         <p>Mon</p>
                         <input type="checkbox" class="T">
@@ -80,7 +86,7 @@
                 </div>
             </Fieldset>
             <p>Rides found from <span class="destacado"> Quesada </span> to <span class="destacado"> Zarcero </span></p>
-            <table class="table">
+            <table class="table" id="rideTable">
                 <tr>
                     <th class="th">Driver</th>
                     <th class="th">From</th>
@@ -147,6 +153,12 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/database.js"></script>
+    <script src="js/application.js"></script>
+    <script>
+        bindEvents();
+    </script>
+    
 </body>
 
 </html>

@@ -144,9 +144,39 @@
     <script src="js/database.js" type="text/javascript"></script>
     <script src="js/application.js" type="text/javascript"></script>
     <script>
-      bindEvents();
-      loadUserProfile();
-      saveUserProfile();
+        document.addEventListener('DOMContentLoaded', function () {
+            const loggedInDriver = JSON.parse(localStorage.getItem('loggedInDriver'));
+
+            if (loggedInDriver) {
+                document.getElementById('fname').value = loggedInDriver.fname;
+                document.getElementById('lname').value = loggedInDriver.lname;
+                document.getElementById('numid').value = loggedInDriver.numid;
+                document.getElementById('bdate').value = loggedInDriver.bdate;
+                document.getElementById('email').value = loggedInDriver.email;
+                document.getElementById('password').value = loggedInDriver.password;
+	            document.getElementById('rpassword').value = loggedInDriver.rpassword;
+	            document.getElementById('address').value = loggedInDriver.address;
+	            document.getElementById('country').value = loggedInDriver.country;
+	            document.getElementById('state').value = loggedInDriver.state;
+	            document.getElementById('city').value = loggedInDriver.city;
+	            document.getElementById('pnumber').value = loggedInDriver.pnumber;
+                document.getElementById('marca').value = loggedInDriver.marca;
+	            document.getElementById('modelo').value = loggedInDriver.modelo;
+	            document.getElementById('año').value = loggedInDriver.año;
+	            document.getElementById('licencia').value = loggedInDriver.licencia;
+
+
+                // Cargar otros campos si es necesario
+                if (loggedInDriver.type === 'driver') {
+                    // Código específico para conductores, si es necesario
+                }
+            } else {
+                alert('No user data found');
+                // Redirigir al inicio de sesión si no se encuentran datos de usuario
+                window.location.href = './index.html';
+            }
+        });
+        bindEvents();
     </script>
 </body>
 

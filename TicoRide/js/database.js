@@ -26,12 +26,24 @@ function saveToLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(drivers));
     return true;
   }
-  
   /**
    *
    * @param {*} key
    */
   function getdFromLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  function saveRiToLocalStorage(key, value) {
+    let rideData = JSON.parse(localStorage.getItem(key))
+    if(!rideData){
+      rideData = [];
+    }
+    rideData.push(value);
+  
+    localStorage.setItem(key, JSON.stringify(rideData));
+    return true;
+  }
+  function getRiFromLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key));
   }
   function bindEvents() {  
@@ -78,4 +90,8 @@ function saveToLocalStorage(key, value) {
   function addUserButtonHandler(element){
     saveToLocalStorage();
     getFromLocalStorage();
+  }
+  function createHandler(element){
+    saveRiToLocalStorage();
+    getRiFromLocalStorage();
   }

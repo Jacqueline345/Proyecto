@@ -38,7 +38,7 @@
         </div>
     </section>
     <section class="Edicion">
-        <div class="editar">
+        <div class="editar" id="editprofile">
             <h1> Edit Profile </h1>
             <p class="line">__________</p>
             <div class="input-container">
@@ -130,10 +130,36 @@
     </div>
     <script src="js/database.js" type="text/javascript"></script>
     <script src="js/application.js" type="text/javascript"></script>
+   
     <script>
-      bindEvents();
-      loadUserProfile();
-      saveUserProfile();
+        document.addEventListener('DOMContentLoaded', function () {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+            if (loggedInUser) {
+                document.getElementById('fname').value = loggedInUser.fname;
+                document.getElementById('lname').value = loggedInUser.lname;
+                document.getElementById('numid').value = loggedInUser.numid;
+                document.getElementById('bdate').value = loggedInUser.bdate;
+                document.getElementById('email').value = loggedInUser.email;
+                document.getElementById('password').value = loggedInUser.password;
+	            document.getElementById('rpassword').value = loggedInUser.rpassword;
+	            document.getElementById('address').value = loggedInUser.address;
+	            document.getElementById('country').value = loggedInUser.country;
+	            document.getElementById('state').value = loggedInUser.state;
+	            document.getElementById('city').value = loggedInUser.city;
+	            document.getElementById('pnumber').value = loggedInUser.pnumber;
+
+                // Cargar otros campos si es necesario
+                if (loggedInUser.type === 'user') {
+                    // Código específico para conductores, si es necesario
+                }
+            } else {
+                alert('No user data found');
+                // Redirigir al inicio de sesión si no se encuentran datos de usuario
+                window.location.href = './index.html';
+            }
+        });
+        bindEvents();
     </script>
 </body>
 
