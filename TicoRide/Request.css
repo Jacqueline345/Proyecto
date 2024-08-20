@@ -242,6 +242,59 @@ fieldset{
     justify-content: center;
     text-align: center;
 }
+/* Media Queries para dispositivos específicos */
+
+/* iPad Pro */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+    .text h1 {
+        font-size: 2.5em;
+    }
+  
+    .informacion h1 {
+        font-size: 24px;
+    }
+  
+    .sign .btn-sign {
+        width: 20%;
+    }
+  }
+  
+  /* iPhone 14 */
+  @media only screen and (min-device-width: 390px) and (max-device-width: 844px) {
+    .principal, .informacion, .sign {
+        flex-direction: column;
+        padding: 10px;
+    }
+  
+    .text {
+        padding-left: 10px;
+    }
+  
+    .text h1 {
+        font-size: 1.5em;
+    }
+  
+    .informacion h1 {
+        font-size: 18px;
+    }
+  
+    .sign .btn-sign {
+        width: 80%;
+    }
+  
+    .input-container {
+        flex-direction: column;
+    }
+  
+    .input-group {
+        width: 100%;
+        margin-right: 0;
+    }
+  
+    .register-wrapper {
+        flex-direction: column;
+    }
+}
 .footer {
     background-color: white;
     color: gray;

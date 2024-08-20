@@ -425,36 +425,98 @@ function saveRideData(){
 		alert('There was an error registering the user');
 	}
 }
-function searchRides() {
-	// Obtener los valores del formulario
-	const dep = document.getElementById('dep').value.toLowerCase();
-	const arr = document.getElementById('arr').value.toLowerCase();
-  
-	// Obtener los datos de localStorage
-	const rideData = JSON.parse(localStorage.getItem('rideData')) || { driver: null, rides: [] };
-	const rides = rideData.rides || [];
-  
-	// Filtrar los rides
-	const filteredRides = rides.filter(ride => {
-	  return ride.dep.toLowerCase().includes(dep) && ride.arr.toLowerCase().includes(arr) && ride.days.toLowerCase().includes(days);
-	});
-  
-	// Mostrar los resultados en la tabla
-	const tableBody = document.getElementById('ridetable').getElementsByTagName('tbody')[0];
-	tableBody.innerHTML = ''; // Limpiar resultados anteriores
-  
-	filteredRides.forEach(ride => {
-	  const row = tableBody.insertRow();
-	  const driver = row.insertCell(0);
-	  const dep= row.insertCell(1);
-	  const arr = row.insertCell(2);
-  
-	  driver.textContent = ride.driver;
-	  dep.textContent = ride.dep;
-	  locationCell.textContent = ride.arr;
-	});
-  }
-  
+// Función para cargar datos en la tabla
+function loadTableData() {
+    let rides = JSON.parse(localStorage.getItem('rideData')) || [];
+    const tableBody = document.querySelector('#rideTable tbody');
+    
+    tableBody.innerHTML = ''; // Limpia la tabla antes de llenarla
+
+    rides.forEach(ride => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+          <td>${ride.driver}</td>
+          <td>${ride.dep}</td>
+          <td>${ride.arr}</td>
+          <td>${ride.se}</td>
+          <td>${ride.make} ${ride.model} ${ride.anio}</td>
+          <td>${ride.fe}</td>
+          <td><a href="./Request.html?u=${ride.dep}">Request</a></td>`;
+        tableBody.appendChild(row);
+    });
+}
+
+// Cargar los datos cuando la página se haya cargado
+document.addEventListener('DOMContentLoaded', loadTableData);
+
+function Request() {
+    const dep = document.getElementById('dep').value;
+    const arr = document.getElementById('arr').value;
+    const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+    const selectedDays = {};
+
+    days.forEach(day => {
+        const checkbox = document.getElementById(day);
+        selectedDays[day] = checkbox.checked;
+    });
+
+    const time = document.getElementById('time').value;
+    const se = document.getElementById('se').value;
+    const fe = document.getElementById('fe').value;
+    const make = document.getElementById('make').value;
+    const model = document.getElementById('model').value;
+    const anio = document.getElementById('anio').value;
+
+    let rides = JSON.parse(localStorage.getItem('rideData')) || [];
+    const existingRideIndex = rides.findIndex(ride => ride.dep === dep && ride.arr === arr);
+
+    if (existingRideIndex !== -1) {
+        rides[existingRideIndex] = { dep, arr, selectedDays, time, se, fe, make, model, anio, "type": "Ride" };
+        localStorage.setItem('rideData', JSON.stringify(rides)); // Guarda los datos en localStorage
+        alert('Ride updated');
+        window.location.href = "./booking.html"; // Redirige a la página de la tabla booking
+    } else {
+        alert('Ride not found');
+    }
+}
+function loadRideData() {
+	// Look for the username from the querystring
+	const urlParams = new URLSearchParams(window.location.search);
+	const dep = urlParams.get('u'); // Make sure 'dep' is initialized
+	if (dep) {
+		// Loop through the user's array
+		const rides = getRFromLocalStorage('rides');
+		let matcheduser = null;
+		rides.forEach((ride) => {
+			// Find the user that matches the username
+			if (ride.dep === dep) {
+				matcheduser = ride;
+				return;
+			}
+		});
+
+		if (matcheduser) {
+			document.getElementById('dep').value = matcheduser.dep;
+			document.getElementById('arr').value = matcheduser.arr;
+
+			const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+			days.forEach(day => {
+				const checkbox = document.getElementById(day);
+				if (checkbox) {
+					checkbox.checked = matcheduser.days && matcheduser.days[day] || false;
+				}
+			});
+
+			document.getElementById('time').value = matcheduser.time;
+			document.getElementById('se').value = matcheduser.se;
+			document.getElementById('fe').value = matcheduser.fe;
+			document.getElementById('make').value = matcheduser.make;
+			document.getElementById('model').value = matcheduser.model;
+			document.getElementById('anio').value = matcheduser.anio;
+		}
+	}
+}
 /**
  * Binds the different events to the different elements of the page
  */
@@ -486,6 +548,9 @@ function bindEvents() {
 	}
 	if (document.getElementById('buscar')) {
 		document.getElementById('buscar').addEventListener('click', BuscarHandler);
+	}
+	if (document.getElementById('Request')) {
+		document.getElementById('Request').addEventListener('click', RequestHandler);
 	}
 
 
@@ -522,5 +587,8 @@ function editarDriveButtonHandler(element){
 	editDrive();
 }
 function BuscarHandler(element){
-	searchRides();
+	loadTableData();
+}
+function RequestHandler(){
+	Request();
 }

@@ -45,42 +45,44 @@
                 <div class="input-container">
                     <p class="from">From</p>
                     <div class="input-group">
-                        <select class="inpC" id="dep">
+                        <select class="inpC" id="dep" name="dep">
                             <option value="SC"> Ciudad Quesada</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
                             <option value="AG"> Aguas Zarcas </option>
                             <option value="MR"> La marina</option>
                             <option value="Zc"> Zarcero</option>
+                            <option value="AL"> Alajuela</option>
                         </select>
                     </div>
                     <p class="to">To</p>
                     <div class="input-group">
-                        <select class="inpC" id="arr">
+                        <select class="inpC" id="arr" name="arr">
                             <option value="Zc"> Zarcero</option>
                             <option value="LF">La Fortuna</option>
                             <option value="AN">Los Àngeles</option>
                             <option value="SC"> Ciudad Quesada</option>
                             <option value="AG"> Aguas Zarcas </option>
                             <option value="MR"> La marina</option>
+                            <option value="MR"> Alajuela</option>
                         </select>
                     </div>
                     <button class="btn" id="buscar"> Find Rides </button>
                     <div class="input-container">
-                        <p class="Days" id="days"> Days</p>
-                        <input type="checkbox" class="M">
+                        <p class="Days" id="days" name="days"> Days</p>
+                        <input type="checkbox" id="M" class="day-checkbox" name="days">
                         <p>Mon</p>
-                        <input type="checkbox" class="T">
+                        <input type="checkbox" id="T" class="day-checkbox" name="days">
                         <p>Tue</p>
-                        <input type="checkbox" class="W">
+                        <input type="checkbox" id="W" class="day-checkbox" name="days">
                         <p>Wed</p>
-                        <input type="checkbox" class="Th">
+                        <input type="checkbox" id="Th" class="day-checkbox" name="days">
                         <p>Thu</p>
-                        <input type="checkbox" class="F">
+                        <input type="checkbox" id="F" class="day-checkbox" name="days">
                         <p>Fri</p>
-                        <input type="checkbox" class="S">
+                        <input type="checkbox" id="S" class="day-checkbox" name="days">
                         <p>Sat</p>
-                        <input type="checkbox" class="Su">
+                        <input type="checkbox" id="Su" class="day-checkbox" name="days">
                         <p>Sun</p>
                     </div>
                 </div>
@@ -123,6 +125,7 @@
                     <td class="td">--</td>
                     <td class="td"><a href="Request.html" class="Req">Request</a></td>
                 </tr>
+                <tbody id="user-table-rows"></tbody>
             </table>
         </div>
     </section>

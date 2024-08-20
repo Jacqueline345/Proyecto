@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="home2.html" class="nav-link" id="homeButton">Home </a>&nbsp;&nbsp;
                     <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
@@ -95,7 +95,7 @@
             </div>
             <div class="boton1">
                 <a href="#" onclick="window.close()" class="nva"> Cancel </a>
-                <button class="nvs"> Request </button>
+                <button class="nvs" id="Request"> Request </button>
             </div>
         </div>
     </section>
@@ -118,6 +118,12 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/database.js"></script>
+    <script src="js/application.js"></script>
+    <script>
+        bindEvents();
+        loadRideData();
+    </script>
 </body>
 
 </html>
