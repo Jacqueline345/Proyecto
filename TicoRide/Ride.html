@@ -21,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" id="home2" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" id="rides" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" id="Bookings" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
                         <img src="image/user_icon.jpg" width="25" alt="user_icon">
@@ -44,57 +44,60 @@
             <button onclick="window.location.href='New Ride.html'" class="button">New ride</button>
             <table class="table table-striped">
                 <thead>
+                    <tr>
+                        <th class="th" scope="col">#</th>
+                        <th class="th" scope="col">From</th>
+                        <th class="th" scope="col">To</th>
+                        <th class="th" scope="col">Seats</th>
+                        <th class="th" scope="col">Car</th>
+                        <th class="th" scope="col">Fee</th>
+                        <th class="th" scope="col">Actions</th>
+                    </tr>
+                </thead>
                 <tr>
-                    <th class="th" scope="col">#</th>
-                    <th class="th" scope="col">From</th>
-                    <th class="th" scope="col">To</th>
-                    <th class="th" scope="col">Seats</th>
-                    <th class="th" scope="col">Car</th>
-                    <th class="th" scope="col">Fee</th>
-                    <th class="th" scope="col">Actions</th>
+                    <td class="td"></td>
+                    <td class="td"><a href="#" class="SC">Quesada</a></td>
+                    <td class="td">Alajuela</td>
+                    <td class="td">2</td>
+                    <td class="td">Nissan Pathfinder 2015</td>
+                    <td class="td">$5</td>
+                    <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton"
+                            class="Req">Delete</a></td>
                 </tr>
-            </thead>
-            <tr>
-                <td class="td"></td>
-                <td class="td"><a href="#" class="SC">Quesada</a></td>
-                <td class="td">Alajuela</td>
-                <td class="td">2</td>
-                <td class="td">Nissan Pathfinder 2015</td>
-                <td class="td">$5</td>
-                <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton" class="Req">Delete</a></td>
-            </tr>
-            <tr>
-                <td class="td"></td>
-                <td class="td"><a href="#" class="SC">Quesada</a></td>
-                <td class="td">Naranjo</td>
-                <td class="td">1</td>
-                <td class="td">Toyota Corolla 2020</td>
-                <td class="td">$10</td>
-                <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton" class="Req">Delete</a></td>
-            </tr>
-            <tr>
-                <td class="td"></td>
-                <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
-                <td class="td">Naranjo</td>
-                <td class="td">1</td>
-                <td class="td">Ford Festiva 1990</td>
-                <td class="td">--</td>
-                <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton" class="Req">Delete</a></td>
-            </tr>
-            </thead>
-            <tbody id="user-table-rows"></tbody>
+                <tr>
+                    <td class="td"></td>
+                    <td class="td"><a href="#" class="SC">Quesada</a></td>
+                    <td class="td">Naranjo</td>
+                    <td class="td">1</td>
+                    <td class="td">Toyota Corolla 2020</td>
+                    <td class="td">$10</td>
+                    <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton"
+                            class="Req">Delete</a></td>
+                </tr>
+                <tr>
+                    <td class="td"></td>
+                    <td class="td"><a href="#" class="SC">Aguas Zarcas</a></td>
+                    <td class="td">Naranjo</td>
+                    <td class="td">1</td>
+                    <td class="td">Ford Festiva 1990</td>
+                    <td class="td">--</td>
+                    <td class="td"><a href="Edit_ride.html" class="Req">Edit</a> | <a href="" id="deleteButton"
+                            class="Req">Delete</a></td>
+                </tr>
+                </thead>
+                <tbody id="user-table-rows"></tbody>
             </table>
     </section>
-</div>
+    </div>
     <div class="container">
         <div class="row">
             <nav>
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
-                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
-                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="home2.html" id="home2" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" id="rides" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" id="Bookings" class="link">Bookings |</a>&nbsp;&nbsp;
                 <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
                 <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                 <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
@@ -110,7 +113,7 @@
     <script>
         bindEvents();
         loadRides();
-      </script>
+    </script>
 </body>
 
 </html>

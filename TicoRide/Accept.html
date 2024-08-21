@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
-    <link rel="stylesheet" href="Settings.css">
+    <link rel="stylesheet" href="Accept.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             <div class="row">
                 <nav class="cont">
                     <a href="home2.html" id="home2" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="Ride.html" id="rides" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Ride.html"  id="rides" class="nav-link">Rides </a>&nbsp;&nbsp;
                     <a href="Booking.html" id="Bookings" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
@@ -37,22 +37,33 @@
             </div>
         </div>
     </section>
-    <Section class="Info">
-        <div class="prin">
-            <h1 class="textos"> Settings </h1>
-            <p class="line">________________</p>
-            <button onclick="window.location.href='Home.html'" class="Botones"> Edit profile </button>&nbsp;&nbsp;
-            <button onclick="window.location.href='Edit_drive.html'" class="Botones"> Edit Driver </button>&nbsp;&nbsp;
+    <section class="ride">
+        <div class="rid">
+            <h1 class="textos"> Accept </h1>
+            <p class="line">_____________________</p>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="dep"> Departure from </p>
+                    <input type="text" class="inp" placeholder="Quesada" id="dep">
+                </div>
+                <div class="input-group">
+                    <p class="arr"> Arrive To</p>
+                    <input type="text" class="inp" placeholder="Zarcero" id="arr">
+                </div>
+            </div>
         </div>
-    </Section>
+            <div class="botones">
+                <button class="nvs" id="AcceptButton"> Accept </button>
+            </div>
+    </section>
     <div class="container">
         <div class="row">
             <nav>
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <a href="home2.html" id="home2" class="link">Home |</a>&nbsp;&nbsp;
-                <a href="Ride.html" id="rides" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="home2.html" id="home2"  class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html"  id="rides" class="link">Rides |</a>&nbsp;&nbsp;
                 <a href="Booking.html" id="Bookings" class="link">Bookings |</a>&nbsp;&nbsp;
                 <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
                 <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
@@ -64,6 +75,14 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/database.js" type="text/javascript"></script>
+    <script src="js/application.js" type="text/javascript"></script>
+    <script>
+      bindEvents();
+      loadAccept();
+
+    </script>
+
 </body>
 
 </html>

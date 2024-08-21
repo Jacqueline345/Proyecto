@@ -21,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" id="home2" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" id="rides" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" id="Bookings" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
                         <img src="image/user_icon.jpg" width="25" alt="user_icon">
@@ -44,9 +44,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th class="th"> User </th>
-                    <th class="th"> Ride </th>
-                    <th class="th"> Pending / Reject</th>
+                        <th class="th"> User </th>
+                        <th class="th"> Ride </th>
+                        <th class="th"> Pending / Reject</th>
                     </tr>
                 </thead>
             </table>
@@ -58,9 +58,9 @@
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
-                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
-                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="home2.html" id="home2" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" id="rides" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" id="Bookings" class="link">Bookings |</a>&nbsp;&nbsp;
                 <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
                 <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                 <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
@@ -71,6 +71,59 @@
         <img src="image/c.png" alt="Imagen pequeña">
         <span>Aventones.com</span>
     </div>
+    <script src="js/database.js" type="text/javascript"></script>
+    <script src="js/application.js" type="text/javascript"></script>
+    <script>
+        loadBookingUs();
+        function updateNavbar() {
+            // Obtén el elemento con el ID 'rides'
+            const rides = document.getElementById('rides');
+            if (rides) {
+                // Verifica si el array loggedInUser tiene elementos
+                if (loggedInUser.length > 0) {
+                    // Asume que el primer elemento del array es el usuario actual
+                    const currentUser = loggedInUser[0];
+                    // Si el tipo de usuario es 'user', oculta el botón
+                    if (currentUser.type === 'user') {
+                        rides.style.display = 'none';
+                    } else {
+                        // Si el tipo de usuario no es 'user', muestra el botón
+                        rides.style.display = 'block';
+                    }
+                } else if (loggedInDriver.length > 0) {
+                    // Asume que el primer elemento del array es el conductor actual
+                    const currentDriver = loggedInDriver[0];
+                    // Muestra el botón si el tipo de usuario es 'driver'
+                    if (currentDriver.type === 'driver') {
+                        rides.style.display = 'block';
+                    } else {
+                        // Si el tipo de usuario no es 'driver', oculta el botón
+                        rides.style.display = 'none';
+                    }
+                } else {
+                    // Si ninguno de los arrays tiene elementos, oculta el botón por defecto
+                    rides.style.display = 'none';
+                }
+            }
+        }
+
+        // Ejemplo de asignación de los arrays
+        const loggedInUser = [
+            {
+                type: 'user' // Cambia esto a 'driver' o cualquier otro valor según sea necesario
+            }
+        ];
+
+        const loggedInDriver = [
+            {
+                type: 'driver' // Cambia esto según sea necesario
+            }
+        ];
+
+        // Llama a la función para actualizar la barra de navegación
+        updateNavbar();
+
+    </script>
 </body>
 
 </html>

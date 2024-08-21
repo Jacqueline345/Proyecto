@@ -46,6 +46,42 @@ function saveToLocalStorage(key, value) {
   function getRiFromLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key));
   }
+  function saveToBookLocalStorage(key, value) {
+    let booking = JSON.parse(localStorage.getItem(key))
+    if(!booking){
+      booking = [];
+    }
+    booking.push(value);
+  
+    localStorage.setItem(key, JSON.stringify(booking));
+    return true;
+  }
+  
+  /**
+   *
+   * @param {*} key
+   */
+  function getFromBoLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  function saveToBookUsLocalStorage(key, value) {
+    let bookingUs = JSON.parse(localStorage.getItem(key))
+    if(!bookingUs){
+      bookingUs = [];
+    }
+    bookingUs.push(value);
+  
+    localStorage.setItem(key, JSON.stringify(bookingUs));
+    return true;
+  }
+  
+  /**
+   *
+   * @param {*} key
+   */
+  function getFromBoUsLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
   function bindEvents() {  
     if(document.getElementById('addUserButton')){
       document.getElementById('addUserButton').addEventListener('click', addUserButtonHandler)
@@ -56,7 +92,9 @@ function saveToLocalStorage(key, value) {
     if(document.getElementById('RegisterButton')){
       document.getElementById('RegisterButton').addEventListener('click', createHandler);
     }
-
+    if(document.getElementById('RegisterButton')){
+      document.getElementById('RegisterButton').addEventListener('click', createHandler);
+    }
     
   }
   function savesRToLocalStorage(key, value) {
@@ -95,3 +133,4 @@ function saveToLocalStorage(key, value) {
     saveRiToLocalStorage();
     getRiFromLocalStorage();
   }
+  

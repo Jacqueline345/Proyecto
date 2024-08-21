@@ -21,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" id="home2" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" id="rides" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" id="Bookings" class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
                         <img src="image/user_icon.jpg" width="25" alt="user_icon">
@@ -125,7 +125,9 @@
                     <td class="td">--</td>
                     <td class="td"><a href="Request.html" class="Req">Request</a></td>
                 </tr>
-                <tbody id="user-table-rows"></tbody>
+                <tbody>
+
+                </tbody>
             </table>
         </div>
     </section>
@@ -143,9 +145,9 @@
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <a href="home2.html" class="link">Home |</a>&nbsp;&nbsp;
-                <a href="Ride.html" class="link">Rides |</a>&nbsp;&nbsp;
-                <a href="Booking.html" class="link">Bookings |</a>&nbsp;&nbsp;
+                <a href="home2.html" id="home2" class="link">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" id="rides" class="link">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" id="Bookings" class="link">Bookings |</a>&nbsp;&nbsp;
                 <a href="Settings.html" class="link">Settings |</a>&nbsp;&nbsp;
                 <a href="index.html" class="link">Login |</a>&nbsp;&nbsp;
                 <a href="registro.html" class="link">Register </a>&nbsp;&nbsp;
@@ -159,9 +161,72 @@
     <script src="js/database.js"></script>
     <script src="js/application.js"></script>
     <script>
-        bindEvents();
+        function loadTableData() {
+            let data = JSON.parse(localStorage.getItem('rideData'));
+
+            if (data && Array.isArray(data) && data.length > 0) {
+                const driver = data[0].driver; // Accede al objeto driver
+                const rides = data[0].rides; // Accede al array de rides
+                console.log('Driver:', driver); // Verifica el contenido del driver
+                console.log('Rides:', rides); // Verifica el contenido de rides
+
+                const rideTable = document.getElementById('rideTable').getElementsByTagName('tbody')[0];
+                if (rideTable) {
+                    rides.forEach(ride => {
+                        console.log('Ride:', ride); // Verifica la estructura de cada ride
+
+                        const row = document.createElement('tr');
+
+                        row.innerHTML = `
+                  <td>${driver ? driver.fname + ' ' + driver.lname : 'N/A'}</td>
+                  <td>${ride.dep || 'N/A'}</td>
+                  <td>${ride.arr || 'N/A'}</td>
+                  <td>${ride.se || 'N/A'}</td>
+                  <td>${ride.make || 'N/A'} ${ride.model || 'N/A'} ${ride.anio || 'N/A'}</td>
+                  <td>${ride.fe || 'N/A'}</td>
+                  <td><a href="./Request.html?u=${encodeURIComponent(ride.dep)}">Request</a></td>`;
+                        rideTable.appendChild(row);
+                    });
+                } else {
+                    console.error('Element with id "rideTable" not found');
+                }
+            } else {
+                console.error('No valid data found in localStorage');
+            }
+        }
+
+        window.onload = loadTableData;
+        function updateNavbar() {
+            // Obtén el elemento con el ID 'rides'
+            const rides = document.getElementById('rides');
+            if (rides) {
+                // Verifica si el array loggedInUser tiene elementos
+                if (loggedInUser.length > 0) {
+                    // Asume que el primer elemento del array es el usuario actual
+                    const currentUser = loggedInUser[0];
+                    // Si el tipo de usuario es 'user', oculta el botón
+                    if (currentUser.type === 'user') {
+                        rides.style.display = 'none';
+                    } else {
+                        // Si el tipo de usuario no es 'user', muestra el botón
+                        rides.style.display = 'block';
+                    }
+                }
+            }
+        }
+
+        // Ejemplo de asignación de los arrays
+        const loggedInUser = [
+            {
+                type: 'user' // Cambia esto a 'driver' o cualquier otro valor según sea necesario
+            }
+        ];
+        // Llama a la función para actualizar la barra de navegación
+        updateNavbar();
+
+
     </script>
-    
+
 </body>
 
 </html>

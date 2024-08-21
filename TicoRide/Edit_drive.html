@@ -21,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <nav class="cont">
-                    <a href="home2.html" class="nav-link">Home </a>&nbsp;&nbsp;
-                    <a href="Ride.html" class="nav-link">Rides </a>&nbsp;&nbsp;
-                    <a href="Booking.html" class="nav-link">Bookings </a>&nbsp;&nbsp;
+                    <a href="home2.html" id="home2" class="nav-link">Home </a>&nbsp;&nbsp;
+                    <a href="Ride.html" id="rides" class="nav-link">Rides </a>&nbsp;&nbsp;
+                    <a href="Booking.html" id="Bookings"  class="nav-link">Bookings </a>&nbsp;&nbsp;
                     <input type="text" class="search-input" placeholder="Search...">&nbsp;&nbsp;
                     <label for="toggle-options" class="user-icon">
                         <img src="image/user_icon.jpg" width="25" alt="user_icon">
@@ -128,9 +128,9 @@
                 <p class="p1">
                     __________________________________________________________________________________________________________________________________________________________
                 </p>
-                <a href="home2.html">Home |</a>&nbsp;&nbsp;
-                <a href="Ride.html">Rides |</a>&nbsp;&nbsp;
-                <a href="Booking.html">Bookings |</a>&nbsp;&nbsp;
+                <a href="home2.html" id="home2">Home |</a>&nbsp;&nbsp;
+                <a href="Ride.html" id="rides">Rides |</a>&nbsp;&nbsp;
+                <a href="Booking.html" id="Bookings">Bookings |</a>&nbsp;&nbsp;
                 <a href="Settings.html">Settings |</a>&nbsp;&nbsp;
                 <a href="index.html">Login |</a>&nbsp;&nbsp;
                 <a href="registro.html">Register </a>&nbsp;&nbsp;
@@ -154,16 +154,16 @@
                 document.getElementById('bdate').value = loggedInDriver.bdate;
                 document.getElementById('email').value = loggedInDriver.email;
                 document.getElementById('password').value = loggedInDriver.password;
-	            document.getElementById('rpassword').value = loggedInDriver.rpassword;
-	            document.getElementById('address').value = loggedInDriver.address;
-	            document.getElementById('country').value = loggedInDriver.country;
-	            document.getElementById('state').value = loggedInDriver.state;
-	            document.getElementById('city').value = loggedInDriver.city;
-	            document.getElementById('pnumber').value = loggedInDriver.pnumber;
+                document.getElementById('rpassword').value = loggedInDriver.rpassword;
+                document.getElementById('address').value = loggedInDriver.address;
+                document.getElementById('country').value = loggedInDriver.country;
+                document.getElementById('state').value = loggedInDriver.state;
+                document.getElementById('city').value = loggedInDriver.city;
+                document.getElementById('pnumber').value = loggedInDriver.pnumber;
                 document.getElementById('marca').value = loggedInDriver.marca;
-	            document.getElementById('modelo').value = loggedInDriver.modelo;
-	            document.getElementById('año').value = loggedInDriver.año;
-	            document.getElementById('licencia').value = loggedInDriver.licencia;
+                document.getElementById('modelo').value = loggedInDriver.modelo;
+                document.getElementById('año').value = loggedInDriver.año;
+                document.getElementById('licencia').value = loggedInDriver.licencia;
 
 
                 // Cargar otros campos si es necesario

@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title> TicoRides</title>
-    <link rel="stylesheet" href="Request.css">
+    <link rel="stylesheet" href="New_Ride.css">
+
 </head>
 
 <body>
@@ -39,17 +40,19 @@
     </section>
     <section class="ride">
         <div class="rid">
-            <h1 class="textos"> Quesada - Zarcero </h1>
-            <p class="line">___________________</p>
-            <img src="image/user_icon.jpg" class="IMAGE" alt="im">
-            <p class="textos1">barroyo</p>
-            <fieldset class="prin">
-                <p class="dep"> Departure from </p>
-                <span><input type="text" class="inp" placeholder="Quesada" id="dep"></span>
-                <p class="arr"> Arrive To</p>
-                <input type="text" class="inp" placeholder="Zarcero" id="arr">
-            </fieldset>
-            <p class="Days"> Days</p>
+            <h1 class="textos"> Delete </h1>
+            <p class="line">_____________________</p>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="dep"> Departure from </p>
+                    <input type="text" class="inp" id="dep">
+                </div>
+                <div class="input-group">
+                    <p class="arr"> Arrive To</p>
+                    <input type="text" class="inp" id="arr">
+                </div>
+            </div>
+            <p class="day"> Days </p>
             <div class="input-container">
                 <input type="checkbox" class="M" id="M">
                 <p>Mon</p>
@@ -66,36 +69,51 @@
                 <input type="checkbox" class="Su" id="Su">
                 <p>Sun</p>
             </div>
-            <fieldset class="tiempo">
-                <p class="time1"> Time </p>
-                <select class="time" id="time">
-                    <option value="SC" disabled selected>10:00 am</option>
-                    <option value="LF">11:00 am</option>
-                    <option value="AN">1:00 pm</option>
-                </select>
-                <p class="sa">Seats</p>
-                <input type="number" class="sea" value="2" id="se">
-                <p class="fe"> Fee </p>
-                <input type="number" class="fee" value="15" id="fe">
-            </fieldset>
+            <div class="input-container">
+                <div class="input-group">
+                    <p class="time1"> Time </p>
+                    <select class="time" id="time">
+                        <option value="SC" disabled selected>10:00 am</option>
+                        <option value="LF">11:00 am</option>
+                        <option value="AN">1:00 pm</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <p class="sa">Seats</p>
+                    <input type="number" class="sea" value="2" id="se">
+                </div>
+                <div class="input-group">
+                    <p class="fe"> Fee </p>
+                    <input type="number" class="fee" value="15" id="fe">
+                </div>
+            </div>
             <div>
                 <p class="V"> Vehicle Details</p>
                 <fieldset class="informacion">
-                    <p class="make"> Make </p>
-                    <select class="inpT" id="make">
-                        <option value="Nissan">Nissan</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="Jeep">Jeep</option>
-                    </select>
-                    <p class="mode"> Model </p>
-                    <input type="text" class="model" placeholder="March" id="model">
-                    <p class="yea"> Year </p>
-                    <input type="number" id="anio" class="year" name="anio" min="1900" max="2100" step="1" value="2020">
+                    <div class="input-container">
+                        <div class="input-group">
+                            <p class="make"> Make </p>
+                            <select class="inpT" id="make">
+                                <option value="Nissan" disabled selected>Nissan</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Jeep">Jeep</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <p class="models"> Model </p>
+                            <input type="text" class="model" placeholder="Car Model" id="model">
+                        </div>
+                        <div class="input-group">
+                            <p class="years"> Year </p>
+                            <input type="number" id="anio" class="year" name="anio" min="1900" max="2100" step="1"
+                                value="2020">
+                        </div>
+                    </div>
                 </fieldset>
-            </div>
-            <div class="boton1">
-                <a href="#" onclick="window.close()" class="nva"> Cancel </a>
-                <button class="nvs" id="Request"> Request </button>
+                <div class="botones">
+                    <a href="#" onclick="window.close()" class="nva"> Cancel </a>&nbsp;&nbsp;
+                    <button class="nvs" id="create"> Create </button>
+                </div>
             </div>
         </div>
     </section>
@@ -122,8 +140,8 @@
     <script src="js/application.js"></script>
     <script>
         bindEvents();
-        loadRideData();
-</script>
+        loadRide();
+    </script>
 </body>
 
 </html>
