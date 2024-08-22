@@ -50,7 +50,8 @@
                 <tr>
                     <td class="td"><img src="image/user_icon.jpg" width="24" alt="us"> fulano </td>
                     <td class="td">Ciudad Quesada - Naranjo </td>
-                    <td class="td"><a href="#" class="SC">Accept</a> | <a href="#" class="SC">Reject</a></td>
+                    <td class="td"><a href="BookingUser.html" class="SC">Accept</a> | <a href="#" class="SC">Reject</a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="td"><img src="image/user_icon.jpg" width="24" alt="us"> yluna </td>
@@ -85,25 +86,6 @@
     <script>
         bindEvents();
         loadBooking();
-        // Función para redirigir según el tipo de usuario
-        function redirectToBooking() {
-            // Obtener el tipo de usuario desde localStorage
-            const userType = localStorage.getItem('userType'); // 'driver' o 'user'
-
-            if (userType === 'driver') {
-                // Redirigir a la página de booking para drivers
-                window.location.href = 'booking_driver.html';
-            } else if (userType === 'user') {
-                // Redirigir a la página de booking para usuarios
-                window.location.href = 'booking_user.html';
-            } else {
-                console.error('Tipo de usuario desconocido');
-            }
-        }
-
-        // Llamar a la función cuando sea necesario (por ejemplo, después de aceptar una reserva)
-        redirectToBooking();
-
     </script>
 </body>
 

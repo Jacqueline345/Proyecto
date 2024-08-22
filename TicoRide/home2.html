@@ -165,27 +165,27 @@
             let data = JSON.parse(localStorage.getItem('rideData'));
 
             if (data && Array.isArray(data) && data.length > 0) {
-                const driver = data[0].driver; // Accede al objeto driver
-                const rides = data[0].rides; // Accede al array de rides
-                console.log('Driver:', driver); // Verifica el contenido del driver
-                console.log('Rides:', rides); // Verifica el contenido de rides
-
                 const rideTable = document.getElementById('rideTable').getElementsByTagName('tbody')[0];
                 if (rideTable) {
-                    rides.forEach(ride => {
-                        console.log('Ride:', ride); // Verifica la estructura de cada ride
+                    data.forEach(item => {
+                        const driver = item.driver; // Accede al objeto driver
+                        const rides = item.rides; // Accede al array de rides
 
-                        const row = document.createElement('tr');
+                        rides.forEach(ride => {
+                            console.log('Ride:', ride); // Verifica la estructura de cada ride
 
-                        row.innerHTML = `
-                  <td>${driver ? driver.fname + ' ' + driver.lname : 'N/A'}</td>
-                  <td>${ride.dep || 'N/A'}</td>
-                  <td>${ride.arr || 'N/A'}</td>
-                  <td>${ride.se || 'N/A'}</td>
-                  <td>${ride.make || 'N/A'} ${ride.model || 'N/A'} ${ride.anio || 'N/A'}</td>
-                  <td>${ride.fe || 'N/A'}</td>
-                  <td><a href="./Request.html?u=${encodeURIComponent(ride.dep)}">Request</a></td>`;
-                        rideTable.appendChild(row);
+                            const row = document.createElement('tr');
+
+                            row.innerHTML += `
+                        <td>${driver ? driver.fname + ' ' + driver.lname : 'N/A'}</td>
+                        <td>${ride.dep || 'N/A'}</td>
+                        <td>${ride.arr || 'N/A'}</td>
+                        <td>${ride.se || 'N/A'}</td>
+                        <td>${ride.make || 'N/A'} ${ride.model || 'N/A'} ${ride.anio || 'N/A'}</td>
+                        <td>${ride.fe || 'N/A'}</td>
+                        <td><a href="./Request.html?u=${encodeURIComponent(ride.dep)}">Request</a></td>`;
+                            rideTable.appendChild(row);
+                        });
                     });
                 } else {
                     console.error('Element with id "rideTable" not found');
@@ -195,35 +195,7 @@
             }
         }
 
-        window.onload = loadTableData;
-        function updateNavbar() {
-            // Obtén el elemento con el ID 'rides'
-            const rides = document.getElementById('rides');
-            if (rides) {
-                // Verifica si el array loggedInUser tiene elementos
-                if (loggedInUser.length > 0) {
-                    // Asume que el primer elemento del array es el usuario actual
-                    const currentUser = loggedInUser[0];
-                    // Si el tipo de usuario es 'user', oculta el botón
-                    if (currentUser.type === 'user') {
-                        rides.style.display = 'none';
-                    } else {
-                        // Si el tipo de usuario no es 'user', muestra el botón
-                        rides.style.display = 'block';
-                    }
-                }
-            }
-        }
-
-        // Ejemplo de asignación de los arrays
-        const loggedInUser = [
-            {
-                type: 'user' // Cambia esto a 'driver' o cualquier otro valor según sea necesario
-            }
-        ];
-        // Llama a la función para actualizar la barra de navegación
-        updateNavbar();
-
+        loadTableData();
 
     </script>
 

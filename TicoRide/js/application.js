@@ -151,26 +151,24 @@ function loadAccept() {
 	// Look for the username from the querystring
 	const urlParams = new URLSearchParams(window.location.search);
 	const dep = urlParams.get('u'); // Make sure 'dep' is initialized
-	const booking = getFromLocalStorage('booking');
-
 	if (dep) {
 		// Loop through the user's array
-		const matchedBooking = bookings.find(booking => booking.dep === dep);
+		const booking = getFromLocalStorage('booking');
+		let matcheduser = null;
 		booking.forEach((booking) => {
 			// Find the user that matches the username
 			if (booking.dep === dep) {
-				matchedBooking = ride;
+				matcheduser = booking;
 				return;
 			}
 		});
 
-		if (matchedBooking) {
-			document.getElementById('dep').value = matchedBooking.dep;
-			document.getElementById('arr').value = matchedBooking.arr;
+		if (matcheduser) {
+			document.getElementById('dep').value = matcheduser.dep;
+			document.getElementById('arr').value = matcheduser.arr;
 		}
 	}
 }
-	
 function saveUser() {
 	const fname = document.getElementById('fname').value;
 	const lname = document.getElementById('lname').value;
@@ -255,6 +253,20 @@ function saveUserProv() {
 		alert('There was an error registering the user');
 	}
 }
+function saveRideData() {
+	const loggedInDriver = JSON.parse(localStorage.getItem('loggedInDriver'));
+	const rides = JSON.parse(localStorage.getItem('rides'));
+	const rideData = {
+		driver: loggedInDriver,
+		rides: rides
+	};
+	if (saveRiToLocalStorage('rideData', rideData)) {
+		alert('Ride guardados correctamente');
+		document.location.href = "./Ride.html";
+	} else {
+		alert('There was an error registering the user');
+	}
+}
 function saveRide() {
 	const dep = document.getElementById('dep').value;
 	const arr = document.getElementById('arr').value;
@@ -308,16 +320,46 @@ function saveRide() {
 	}
 }
 
-function deleteRide(index) {
-	// Obtener los datos del localStorage
-	const rides = JSON.parse(localStorage.getItem('rides')) || [];
-	// Eliminar el viaje seleccionado
-	rides.splice(index, 1);
-	// Guardar los datos actualizados en localStorage
-	localStorage.setItem('rides', JSON.stringify(rides));
-	// Recargar la página para actualizar la tabla
-	window.location.reload();
+function deleteRide() {
+	const dep = document.getElementById('dep').value;
+	const arr = document.getElementById('arr').value;
+	const days = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+	const selectedDays = {};
+
+	// Recopilar los días seleccionados
+	days.forEach(day => {
+		const checkbox = document.getElementById(day);
+		selectedDays[day] = checkbox ? checkbox.checked : false; // Asegurarse de que el checkbox exista
+	});
+
+	const time = document.getElementById('time').value;
+	const se = document.getElementById('se').value;
+	const fe = document.getElementById('fe').value;
+	const make = document.getElementById('make').value;
+	const model = document.getElementById('model').value;
+	const anio = document.getElementById('anio').value;
+
+	let rides = JSON.parse(localStorage.getItem('rides')) || [];
+	let rideData = JSON.parse(localStorage.getItem('rideData')) || [];
+
+	const existingRidesIndex = rides.findIndex(rides => rides.dep === dep);
+	const existingIndex = rideData.findIndex(rideData => rideData.dep === dep);
+
+	if (existingRidesIndex !== -1 && existingIndex !==-1) {
+
+		rides.splice(existingRidesIndex, 1);
+		rideData.splice(existingIndex, 1);
+
+		localStorage.setItem('rides', JSON.stringify(rides));
+		localStorage.setItem('rideData', JSON.stringify(rideData));
+
+		alert('Deleted successfully...');
+		document.location.href = "./Ride.html";
+	} else {
+		alert('Ride not found');
+	}
 }
+
 function loadBooking() {
 	// Retrieve the rides from localStorage
 	const booking = getFromLocalStorage('booking');
@@ -329,7 +371,7 @@ function loadBooking() {
 		table.innerHTML += `
             <td>${booking.user}</td>
             <td>${booking.dep} - ${booking.arr}</td>
-			<td> <a href="./Accept.html?u=${booking.dep}"> Accept </a> | <a href="#" id="RejectButton" data-index="${index}">Reject</a></td>`;
+			<td> <a href="./Accept.html?u=${booking.dep}" id="AcceptButton"> Accept </a> | <a href="Reject.html?u=${booking.dep}" id="RejectButton">Reject</a></td>`;
 	});
 }
 function loadBookingUs() {
@@ -342,7 +384,7 @@ function loadBookingUs() {
 
 		table.innerHTML += `
             <td>${userBooking.user}</td>
-            <td>${userBooking.dep} - ${userBooking - arr}</td>
+            <td>${userBooking.dep} - ${userBooking.arr}</td>
 			<td>${userBooking.status} </td>`;
 	});
 }
@@ -362,7 +404,7 @@ function loadRides() {
             <td>${Ride.se}</td>
             <td>${Ride.make} ${Ride.model} ${Ride.anio}</td>
             <td>${Ride.fe}</td>
-			<td> <a href="./edit_ride.html?u=${Ride.dep}">Edit</a> | <a href="Delete.html" data-index="${index}">Delete</a></td>`;
+		    <td> <a href="./edit_ride.html?u=${Ride.dep}" id="editButton">Edit</a> | <a href="./Delete.html?u=${Ride.dep}" class="deleteButton" data-index="${index}">Delete</a></td > `;
 	});
 }
 function editUser() {
@@ -440,10 +482,15 @@ function editRide() {
 	const anio = document.getElementById('anio').value;
 
 	let rides = JSON.parse(localStorage.getItem('rides')) || [];
+	let rideData = JSON.parse(localStorage.getItem('rideData')) || [];
 	const existingRideIndex = rides.findIndex(ride => ride.dep === dep && ride.arr === arr);
-	if (existingRideIndex !== -1) {
+	const existingIndex = rideData.findIndex(rideData => rideData.dep === dep && rideData.arr === arr);
+
+	if (existingRideIndex !== -1 && existingIndex !==-1) {
 		rides[existingRideIndex] = { dep, arr, selectedDays, time, se, fe, make, model, anio, "type": "Ride" };
+		rideData[existingIndex] = { loggedInDriver, dep, arr, selectedDays, time, se, fe, make, model, anio, "type": "Ride" };
 		localStorage.setItem('rides', JSON.stringify(rides));
+		localStorage.setItem('rideData', JSON.stringify(rideData));
 		alert('Ride updated');
 		document.location.href = "./Ride.html";
 	} else {
@@ -543,70 +590,70 @@ function loadRideData() {
 	}
 }
 function editStatusReject() {
-    const dep = document.getElementById('dep').value;
-    const arr = document.getElementById('arr').value;
+	const dep = document.getElementById('dep').value;
+	const arr = document.getElementById('arr').value;
 
-    // Obtener los arrays de bookings y userBookings desde localStorage
-    let booking = JSON.parse(localStorage.getItem('booking')) || [];
-    let userBooking = JSON.parse(localStorage.getItem('userBooking')) || [];
+	// Obtener los arrays de bookings y userBookings desde localStorage
+	let booking = JSON.parse(localStorage.getItem('booking')) || [];
+	let userBooking = JSON.parse(localStorage.getItem('userBooking')) || [];
 
-    // Encuentra el índice del booking en el array de bookings
-    const existingBookingIndex = booking.findIndex(booking => booking.dep === dep && booking.arr === arr);
-    
-    // Encuentra el índice del booking en el array de userBookings
-    const existingUserBookingIndex = userBooking.findIndex(userBooking => userBooking.dep === dep && userBooking.arr === arr);
-    
-    if (existingBookingIndex !== -1 && existingUserBookingIndex !== -1) {
-        // Eliminar el booking del array de bookings
-        bookings.splice(existingBookingIndex, 1);
-        
-        // Actualiza el estado del booking en userBookings a 'Rejected'
-        userBooking[existingUserBookingIndex].status = 'Rejected';
-        
-        localStorage.setItem('booking', JSON.stringify(bookings));
-        
-        // Guardar el array de userBookings actualizado
-        localStorage.setItem('userBooking', JSON.stringify(userBooking));
-        
-        alert('Booking Rejected');
-        document.location.href = "./Ride.html";
-    } else {
-        alert('Booking not found');
-    }
+	// Encuentra el índice del booking en el array de bookings
+	const existingBookingIndex = booking.findIndex(booking => booking.dep === dep);
+
+	// Encuentra el índice del booking en el array de userBookings
+	const existingUserBookingIndex = userBooking.findIndex(userBooking => userBooking.dep === dep);
+
+	if (existingBookingIndex !== -1 && existingUserBookingIndex !== -1) {
+		// Eliminar el booking del array de bookings
+		booking.splice(existingBookingIndex, 1);
+
+		// Actualiza el estado del booking en userBookings a 'Rejected'
+		userBooking[existingUserBookingIndex].status = 'Rejected';
+
+		localStorage.setItem('booking', JSON.stringify(booking));
+
+		// Guardar el array de userBookings actualizado
+		localStorage.setItem('userBooking', JSON.stringify(userBooking));
+
+		alert('Booking Rejected');
+		document.location.href = "./BookingUser.html";
+	} else {
+		alert('Booking not found');
+	}
 }
 
 function editStatus() {
-    const dep = document.getElementById('dep').value;
-    const arr = document.getElementById('arr').value;
+	const dep = document.getElementById('dep').value;
+	const arr = document.getElementById('arr').value;
 
-    // Obtener los arrays de bookings y userBookings desde localStorage
-    let booking = JSON.parse(localStorage.getItem('booking')) || [];
-    let userBooking = JSON.parse(localStorage.getItem('userBooking')) || [];
+	// Obtener los arrays de bookings y userBookings desde localStorage
+	let booking = JSON.parse(localStorage.getItem('booking')) || [];
+	let userBooking = JSON.parse(localStorage.getItem('userBooking')) || [];
 
-    // Encuentra el índice del booking en el array de bookings
-    const existingBookingIndex = booking.findIndex(booking => booking.dep === dep && booking.arr === arr);
-    
-    // Encuentra el índice del booking en el array de userBookings
-    const existingUserBookingIndex = userBooking.findIndex(userBooking => userBooking.dep === dep && userBooking.arr === arr);
-    
-    if (existingBookingIndex !== -1 && existingUserBookingIndex !== -1) {
-        // Eliminar el booking del array de bookings
-        bookings.splice(existingBookingIndex, 1);
-        
-        // Actualiza el estado del booking en userBookings a 'Accepted'
-        userBooking[existingUserBookingIndex].status = 'Accepted';
-        
-        // Guardar el array de bookings actualizado (sin el booking eliminado)
-        localStorage.setItem('booking', JSON.stringify(bookings));
-        
-        // Guardar el array de userBookings actualizado
-        localStorage.setItem('userBooking', JSON.stringify(userBooking));
-        
-        alert('Booking Accepted');
-        document.location.href = "./Ride.html";
-    } else {
-        alert('Booking not found');
-    }
+	// Encuentra el índice del booking en el array de bookings
+	const existingBookingIndex = booking.findIndex(booking => booking.dep === dep);
+
+	// Encuentra el índice del booking en el array de userBookings
+	const existingUserBookingIndex = userBooking.findIndex(userBooking => userBooking.dep === dep);
+
+	if (existingBookingIndex !== -1 && existingUserBookingIndex !== -1) {
+		// Eliminar el booking del array de bookings
+		booking.splice(existingBookingIndex, 1);
+
+		// Actualiza el estado del booking en userBookings a 'Accepted'
+		userBooking[existingUserBookingIndex].status = 'Accepted';
+
+		// Guardar el array de bookings actualizado (sin el booking eliminado)
+		localStorage.setItem('booking', JSON.stringify(booking));
+
+		// Guardar el array de userBookings actualizado
+		localStorage.setItem('userBooking', JSON.stringify(userBooking));
+
+		alert('Booking Accepted');
+		document.location.href = "./BookingUser.html";
+	} else {
+		alert('Booking not found');
+	}
 }
 
 /**
@@ -647,7 +694,9 @@ function bindEvents() {
 	if (document.getElementById('AcceptButton')) {
 		document.getElementById('AcceptButton').addEventListener('click', AcceptButtonHandler);
 	}
-
+	if (document.getElementById('RejectButton')) {
+		document.getElementById('RejectButton').addEventListener('click', RejectButtonHandler);
+	}
 
 }
 
@@ -673,15 +722,18 @@ function editButtonHandler(element) {
 	editRide();
 }
 function deleteButtonHandler(element) {
-	tbody.addEventListener('click', function (event) {
-		if (event.target.classList.contains('delete-btn')) {
-			const index = event.target.getAttribute('data-index');
-			if (confirm('Are you sure you want to delete this ride?')) {
-				deleteRide(index);
-			}
-		}
-	});
+	const confirmed = confirm("Are you sure you want to delete this ride?");
+
+	// Si el usuario confirma, se procede con la eliminación
+	if (confirmed) {
+		deleteRide();
+	} else {
+		// Si el usuario cancela, no se elimina el ride
+		alert("Ride not deleted.");
+	}
 }
+
+
 function editarButtonHandler(element) {
 	editUser();
 }
@@ -692,6 +744,9 @@ function RequestHandler() {
 	PedirRide();
 
 }
-function AcceptButtonHandler(element){
+function AcceptButtonHandler(element) {
 	editStatus();
+}
+function RejectButtonHandler(element) {
+	editStatusReject();
 }
